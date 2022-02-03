@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../CartWidget'
 import CartWidget from '../CartWidget';
+import Logo from '../../Logo.png'
 
 const NavBar = () => {
     return (
@@ -10,7 +11,9 @@ const NavBar = () => {
 
             <div className="container-fluid">
 
-                <Link className="navbar-brand" to="/">CazuStore</Link>
+                <Link className="navbar-brand" to="/">
+                    <img width="55" src={Logo} alt="Logo1"></img>
+                </Link>
 
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
