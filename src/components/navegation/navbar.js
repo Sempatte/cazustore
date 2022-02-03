@@ -1,39 +1,53 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import '../CartWidget'
+import CartWidget from '../CartWidget';
 
-const navbar = () => {
+const NavBar = () => {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark  bg-dark">
-                <div className="container-fluid">
-                    <Link class="navbar-brand" to="/">CazuStore</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link active" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/shop">Shop</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="#">About</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="#">Contact</Link>
-                            </li>
-                        </ul>
 
-                            <button type="button" className="btn btn-dark" type="submit">Login</button>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
-                    </div>
+            <div className="container-fluid">
+
+                <Link className="navbar-brand" to="/">CazuStore</Link>
+
+
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/">Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/ItemListContainer">Items</Link>
+                            
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="#">About</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="#">Contact</Link>
+                        </li>
+
+                    </ul>
+
                 </div>
-            </nav>
-        </div>
+
+
+                <div className="d-flex align-items-center">
+                    <CartWidget>
+                        4
+                    </CartWidget>
+
+                    <button className="btn btn-dark" type="button">Login</button>
+                </div>
+
+            </div>
+
+        </nav>
         )
     }; 
 
-export default navbar;
+export default NavBar;
