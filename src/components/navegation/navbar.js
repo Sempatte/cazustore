@@ -1,55 +1,39 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import '../CartWidget'
 import CartWidget from '../CartWidget';
 import Logo from '../../Logo.png'
+import{ Navbar, Nav, NavDropdown, Container}  from "react-bootstrap";
 
 const NavBar = () => {
     return (
 
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-
-            <div className="container-fluid">
-
-                <Link className="navbar-brand" to="/">
-                    <img width="55" src={Logo} alt="Logo1"></img>
-                </Link>
-
-
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
-
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/ItemListContainer">Items</Link>
-                            
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="#">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="#">Contact</Link>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <div className="d-flex align-items-center">
-                    <CartWidget>
-                        4
-                    </CartWidget>
-
-                    <button className="btn btn-dark" type="button">Login</button>
-                </div>
-
-            </div>
-
-        </nav>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+                <Navbar.Brand href="/">
+                    <img src={Logo} width="40" alt="Facebook"/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/">Inicio</Nav.Link>
+                        <Nav.Link href="/ItemListContainer">Productos</Nav.Link>
+                        <NavDropdown title="Categorias" id="collasible-nav-dropdown">
+                            <NavDropdown.Item href="#">Celulares</NavDropdown.Item>
+                            <NavDropdown.Item href="#">Computadoras</NavDropdown.Item>
+                            <NavDropdown.Item href="#">Laptops</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">Hardware</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link href="#" ><CartWidget>4</CartWidget></Nav.Link>
+                        <Nav.Link eventKey={2} href="#">
+                            Login
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
         )
     }; 
 
