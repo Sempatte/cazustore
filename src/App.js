@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Navbar from './components/navegation/NavBar';
+import Navbar from './components/navegation/navbar';
 import Home from './components/pages/Home';
 import ItemListContainer from './components/ItemListContainer';
 
