@@ -15,7 +15,7 @@ const Products = [
   {
     'id': 1,
     'name': 'Laptop Dell Inspiron 15 3505 Ryzen 5-3450U, 15.6", RAM 16GB, SSD 256GB, Win10H',
-    'stars': 4,
+    'stars': 2,
     'initial_price': '3,599.00',
     'final_price': '3,099.00',
     'image1': './images/dell1.jpg',
