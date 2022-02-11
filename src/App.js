@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navbar from './components/navegation/navbar';
-import Home from './components/pages/Home';
+import Home from './components/pages/home';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 
