@@ -1,7 +1,10 @@
 :root {
     --main-color1: #eb4d4b;
     --text-color: #131e2c;
+    --stock-color: red;
 }
+
+
 
 a {
     text-decoration: none !important
@@ -10,6 +13,7 @@ a {
 .product-grid {
     font-family: 'Oswald', sans-serif;
     text-align: center;
+    padding-top: 2em;
 }
 
 .product-grid .product-image {
@@ -99,14 +103,16 @@ a {
     margin: 0 0 7px;
 }
 
-.product-grid .title a {
-    color: var(--text-color);
-    transition: all 500ms;
+
+
+
+.product-grid .stock {
+    color: var(--stock-color);
+    font-size: 14px;
+    text-transform: capitalize;
+    margin: 0 0 7px;
 }
 
-.product-grid .title a:hover {
-    color: var(--main-color1);
-}
 
 .product-grid .price {
     color: var(--text-color);
@@ -127,7 +133,15 @@ a {
     z-index: 1;
 }
 
+.product-grid .product-incrementer {
+    margin-bottom: 10px;
+}
+
+
+
 .product-grid .add-to-cart {
+    border: none;
+    cursor: pointer;
     color: var(--text-color);
     background: #f4f4f4;
     font-size: 14px;
