@@ -1,17 +1,17 @@
 import React from 'react'
 import { ItemList } from '../ItemList/ItemList.js'
-import { Spinner } from '../Spinner/Spinner.js'
+import { Loader } from '../Loader/Loader.js'
 import { useEffect, useState } from 'react'
 import { getProducts } from '../../asyncmock'
 
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
-    const [spinner, setSpinner] = useState(true);
+    const [loader, setLoader] = useState(true);
 
     useEffect(() => {
         getProducts().then((products) => {
-            setSpinner(false);
+            setLoader(false);
             setProducts(products);
         })
     },[])
@@ -21,7 +21,7 @@ const ItemListContainer = () => {
         <>
             
             <div className="container pt-5"> {/* Container Productos */}
-            {spinner ? <Spinner /> : null }
+            {loader ? <Loader /> : null }
                 <div className="row">
                         
                         <ItemList products={products} />

@@ -5,7 +5,7 @@ const Products = [
 		id: 0,
 		name: 'LAPTOP LENOVO IDEAPAD 5I INTEL CORE I7 8GB RAM 512GB SSD 15.6 ',
 		stars: 5,
-		intial_price: '4,399.00',
+		initial_price: '4,699.00',
 		final_price: '4,099.00',
 		hot: true,
 		stock: 5,
@@ -63,9 +63,9 @@ const Products = [
 ]
 
 export const getProducts = () => {
-    return new Promise((res) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            res(Products);
+            resolve(Products);
         }, 2000);    // 2 s
     });
 }
