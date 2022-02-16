@@ -39,7 +39,7 @@ const Item = ( {product} ) => {
                     <ul className="rating">
                         {stars}
                     </ul>
-                    <a href="#viewdetails" className="title">{product.name}</a> {/*Cuando el usuario clickea en el título, podra ver más detalles acerca del producto.*/}
+                    <a onClick={()=>{ alert('Aqui van los Detalles del producto. Esto falta!'); }} href="#viewdetails"  className="title">{product.name}</a> {/*Cuando el usuario clickea en el título, podra ver más detalles acerca del producto.*/}
                     <div className="stock"><span>Stock: {product.stock}</span></div>
                     <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
                     <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>
