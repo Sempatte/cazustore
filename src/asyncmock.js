@@ -70,13 +70,6 @@ export const getProducts = () => {
     });
 }
 
-export const getProduct = () => {
-    return new Promise((res) => {
-        setTimeout(() => {
-            res(Products[0]);
-        }, 1500);  // 1.5 s
-    });
-}
 
 
 
