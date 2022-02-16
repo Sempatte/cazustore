@@ -130,8 +130,10 @@ a {
 
 .product-grid .product-button-group {
     position: relative;
+    
     z-index: 1;
 }
+
 
 .product-grid .product-incrementer {
     margin-bottom: 10px;

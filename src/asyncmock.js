@@ -66,7 +66,7 @@ export const getProducts = () => {
     return new Promise((res) => {
         setTimeout(() => {
             res(Products);
-        }, 1500);    // 1.5 s
+        }, 2000);    // 2 s
     });
 }
 
