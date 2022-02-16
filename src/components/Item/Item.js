@@ -1,7 +1,7 @@
 import React from 'react'
 import { BsStarFill } from "react-icons/bs";
 import ItemCount from "../ItemCount/ItemCount";
-
+import {Link} from 'react-router-dom'
 
 const Item = ( {product} ) => {
     
@@ -31,7 +31,7 @@ const Item = ( {product} ) => {
                         <img className="pic-1" alt="laptop1" src={product.image1} />
                         <img className="pic-2" alt="laptop2" src={product.image2} />
                     </span>
-                    {product.hot === true ? <span className="product-sale-label" ><span role="img" aria-label="fire">🔥</span>  Hot</span> : null}
+                    {product.hot === true && <span className="product-sale-label" ><span role="img" aria-label="fire">🔥</span>  Hot</span>}
 
                     {/* <span className="product-discount-label">-3%</span> */}
                 </div>
@@ -39,7 +39,7 @@ const Item = ( {product} ) => {
                     <ul className="rating">
                         {stars}
                     </ul>
-                    <a onClick={()=>{ alert('Aqui van los Detalles del producto. Esto falta!'); }} href="#viewdetails"  className="title">{product.name}</a> {/*Cuando el usuario clickea en el título, podra ver más detalles acerca del producto.*/}
+                    <Link to={`/detail/${product.id}`} className="title">{product.name}</Link> {/*Cuando el usuario clickea en el título, podra ver más detalles acerca del producto.*/}
                     <div className="stock"><span>Stock: {product.stock}</span></div>
                     <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
                     <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>

@@ -13,9 +13,10 @@ const ItemListContainer = () => {
         getProducts().then((products) => {
             setLoader(false);
             setProducts(products);
+        }).catch((err) =>{
+            console.log(err);
         })
     },[])
-    console.log("P", products)
 
     return(
         <>

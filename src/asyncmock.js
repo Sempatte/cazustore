@@ -70,6 +70,15 @@ export const getProducts = () => {
     });
 }
 
+export const getProduct = (id) => {
+	return new Promise((resolve) => {
+		const prod = Products.find(p => p.id === parseInt(id))
+		setTimeout(() => {
+			resolve(prod)
+		}, 1000)
+	})
+}
 
 
 
+// TODO: Acomodar ItemDetail frontend
