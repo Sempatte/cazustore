@@ -128,79 +128,7 @@ a {
     text-decoration: line-through;
 }
 
-.product-grid .product-button-group {
-    position: relative;
-    
-    z-index: 1;
-}
 
-
-.product-grid .product-incrementer {
-    margin-bottom: 10px;
-}
-
-
-
-.product-grid .add-to-cart {
-    border: none;
-    cursor: pointer;
-    color: var(--text-color);
-    background: #f4f4f4;
-    font-size: 14px;
-    width: calc(100% - 75px);
-    padding: 8px 3px;
-    margin: 0 auto;
-    display: inline-block;
-    transition: all 0.25s ease 0s;
-}
-
-.product-grid .add-to-cart i {
-    margin-right: 8px;
-    display: none;
-    visibility: hidden;
-    transition: all 0.25s ease 0s;
-}
-
-.product-grid:hover .add-to-cart {
-    color: #fff;
-    background: var(--text-color);
-}
-
-.product-grid:hover .add-to-cart i {
-    display: inline-block;
-    visibility: visible;
-}
-
-.product-grid .product-like-icon,
-.product-grid .product-compare-icon {
-    color: var(--text-color);
-    background: #f4f4f4;
-    line-height: 34px;
-    width: 34px;
-    height: 34px;
-    opacity: 0;
-    transform: translateY(-50%);
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    z-index: -1;
-    transition: all 0.25s ease 0s;
-}
-
-.product-grid .product-compare-icon {
-    left: auto;
-    right: 50px;
-}
-
-.product-grid:hover .product-like-icon {
-    opacity: 1;
-    left: 0;
-}
-
-.product-grid:hover .product-compare-icon {
-    opacity: 1;
-    right: 0;
-}
 
 @media only screen and (max-width:990px) {
     .product-grid {

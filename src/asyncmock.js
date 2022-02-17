@@ -4,6 +4,8 @@ const Products = [
 	{
 		id: 0,
 		name: 'LAPTOP LENOVO IDEAPAD 5I INTEL CORE I7 8GB RAM 512GB SSD 15.6 ',
+		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "negro",
 		stars: 5,
 		initial_price: '4,699.00',
 		final_price: '4,099.00',
@@ -15,6 +17,8 @@ const Products = [
 	{
 		id: 1,
 		name: 'LAPTOP ACER AN515-55-50U5 INTEL CORE I5 10300H 8GB 512GB 15.6',
+		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "negro",
 		stars: 2,
 		initial_price: '3,599.00',
 		final_price: '3,099.00',
@@ -27,6 +31,8 @@ const Products = [
 	{
 		id: 2,
 		name: 'LAPTOP LENOVO IDEAPAD 3 AMD RYZEN 3 12GB RAM 256GB SSD 15.6',
+		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "negro",
 		stars: 5,
 		initial_price: '2,799.00',
 		final_price: '1,999.00',
@@ -39,6 +45,8 @@ const Products = [
 	{
 		id: 3,
 		name: 'LAPTOP ASUS X571GT-HN1020T INTEL CORE I5 8GB RAM 512GB SSD 15.6',
+		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "negro",
 		stars: 4,
 		initial_price: '4,099.00',
 		final_price: '3,099.00',
@@ -51,6 +59,8 @@ const Products = [
 	{
 		id: 4,
 		name: 'LAPTOP HP 15-DY2050LA INTEL CORE I3 8GB 256GB + 16GB 15.6',
+		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "negro",
 		stars: 3,
 		initial_price: '2,499.00',
 		final_price: '2,099.00',
@@ -70,13 +80,12 @@ export const getProducts = () => {
     });
 }
 
-export const getProduct = (id) => {
-	return new Promise((resolve) => {
-		const prod = Products.find(p => p.id === parseInt(id))
-		setTimeout(() => {
-			resolve(prod)
-		}, 1000)
-	})
+export const getProduct = () => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(Products[0]);
+        }, 900);      
+    });
 }
 
 

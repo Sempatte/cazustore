@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import React from 'react';
-import { FaRandom } from "react-icons/fa";
-import { BsFillHeartFill } from "react-icons/bs";
+import './ItemCount.css'
 
 function ItemCount(props) {
 
@@ -39,8 +38,7 @@ function ItemCount(props) {
                     restartCount();
                 }
                 } className="add-to-cart">AÑADIR AL CARRITO</button>
-                <span className="product-like-icon" ><BsFillHeartFill /></span>
-                <span className="product-compare-icon"><FaRandom /></span>
+
             </div>
             
 

@@ -1,0 +1,43 @@
+.product-button-group {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.product-incrementer {
+    margin-bottom: 10px;
+}
+
+
+
+.add-to-cart {
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    background: #f4f4f4;
+    font-size: 14px;
+    width: calc(100% - 75px);
+    padding: 8px 3px;
+    margin: 0 auto;
+    display: inline-block;
+    transition: all 0.25s ease 0s;
+}
+
+.add-to-cart i {
+    margin-right: 8px;
+    display: none;
+    visibility: hidden;
+    transition: all 0.25s ease 0s;
+}
+
+.add-to-cart:hover {
+    color: #fff;
+    background: var(--text-color);
+}
+
+.add-to-cart i:hover {
+    display: inline-block;
+    visibility: visible;
+}
+

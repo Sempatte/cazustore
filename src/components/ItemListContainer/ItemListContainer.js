@@ -1,6 +1,6 @@
 import React from 'react'
-import { ItemList } from '../ItemList/ItemList.js'
-import { Loader } from '../Loader/Loader.js'
+import { ItemList } from '../ItemList/ItemList'
+import { Loader } from '../Loader/Loader'
 import { useEffect, useState } from 'react'
 import { getProducts } from '../../asyncmock'
 
