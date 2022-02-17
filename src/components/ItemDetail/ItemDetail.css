@@ -1,0 +1,14 @@
+.price {
+    color: red;
+    font-weight: 650;
+    font-size: 25px;
+    letter-spacing: 0.005em;
+    margin-bottom: 10px;
+}
+
+.price span {
+    color: #a7a7a7;
+    font-size: 17.5px;
+    font-weight: 400;
+    text-decoration: line-through;
+}

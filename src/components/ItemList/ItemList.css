@@ -115,7 +115,8 @@ a {
 
 
 .product-grid .price {
-    color: var(--text-color);
+    color: red;
+    font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.005em;
     margin-bottom: 10px;

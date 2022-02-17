@@ -27,10 +27,10 @@ const Item = ( {product} ) => {
         <div className="col-md-3 col-sm-6">
             <div className="product-grid"> 
                 <div className="product-image">
-                    <span className="image">
+                    <Link to={`/item/${product.id}`} className="image">
                         <img className="pic-1" alt="laptop1" src={product.image1} />
                         <img className="pic-2" alt="laptop2" src={product.image2} />
-                    </span>
+                    </Link>
                     {product.hot === true && <span className="product-sale-label" ><span role="img" aria-label="fire">🔥</span>  Hot</span>}
 
                     {/* <span className="product-discount-label">-3%</span> */}
@@ -39,14 +39,18 @@ const Item = ( {product} ) => {
                     <ul className="rating">
                         {stars}
                     </ul>
-                    <Link to='/detail' className="title">{product.name}</Link> {/*Cuando el usuario clickea en el título, podra ver más detalles acerca del producto.*/}
-                    <div className="stock"><span>Stock: {product.stock}</span></div>
+                    <Link to={`/item/${product.id}`} className="title">{product.name}</Link> {/*Cuando el usuario clickea en el título, podra ver más detalles acerca del producto.*/}
+                    {/* <div className="stock"><span>Stock: {product.stock}</span></div> */}
                     <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
                     <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>
                     
                 </div>
             </div>
+
+            
         </div>
+
+        
         
     )
 }

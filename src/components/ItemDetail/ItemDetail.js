@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.css'
 
 const ItemDetail = ({ product }) => {
 
@@ -27,10 +28,14 @@ const ItemDetail = ({ product }) => {
                 </aside>
                 <aside className="col-sm-7">
                     <article className="card-body p-5">
-                        <h3 className="title mb-3">{product.name}</h3>
+                        <h3 className="title mb-3">                        
+                            {product.name}
+                            {product.hot === true && <span role="img" aria-label="fire">🔥</span>}
+                        </h3>
                         <p className="price-detail-wrap">
                             <span className="price h3 text-warning">
-                                <span className="currency">S/.</span><span className="num">{product.final_price}</span>
+                                <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
+                                {/* <span className="currency">S/.</span><span className="num">{product.final_price}</span> */}
                             </span>
                         </p>
                         <dl className="item-property">

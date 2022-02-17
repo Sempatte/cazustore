@@ -4,8 +4,8 @@ const Products = [
 	{
 		id: 0,
 		name: 'LAPTOP LENOVO IDEAPAD 5I INTEL CORE I7 8GB RAM 512GB SSD 15.6 ',
-		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
-		color: "negro",
+		description: "Description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "Negro",
 		stars: 5,
 		initial_price: '4,699.00',
 		final_price: '4,099.00',
@@ -17,8 +17,8 @@ const Products = [
 	{
 		id: 1,
 		name: 'LAPTOP ACER AN515-55-50U5 INTEL CORE I5 10300H 8GB 512GB 15.6',
-		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
-		color: "negro",
+		description: "Description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "Negro y Rojo",
 		stars: 2,
 		initial_price: '3,599.00',
 		final_price: '3,099.00',
@@ -31,8 +31,8 @@ const Products = [
 	{
 		id: 2,
 		name: 'LAPTOP LENOVO IDEAPAD 3 AMD RYZEN 3 12GB RAM 256GB SSD 15.6',
-		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
-		color: "negro",
+		description: "Description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "Azul",
 		stars: 5,
 		initial_price: '2,799.00',
 		final_price: '1,999.00',
@@ -45,8 +45,8 @@ const Products = [
 	{
 		id: 3,
 		name: 'LAPTOP ASUS X571GT-HN1020T INTEL CORE I5 8GB RAM 512GB SSD 15.6',
-		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
-		color: "negro",
+		description: "Description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "Plateado",
 		stars: 4,
 		initial_price: '4,099.00',
 		final_price: '3,099.00',
@@ -59,13 +59,13 @@ const Products = [
 	{
 		id: 4,
 		name: 'LAPTOP HP 15-DY2050LA INTEL CORE I3 8GB 256GB + 16GB 15.6',
-		description: "Description Here goes description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
-		color: "negro",
+		description: "Description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
+		color: "Blanco",
 		stars: 3,
 		initial_price: '2,499.00',
 		final_price: '2,099.00',
 		hot: false,
-		stock: 8,
+		stock: 80,
 		image1: 'https://home.ripley.com.pe/Attachment/WOP_5/2004270712128/2004270712128_2.jpg',
 		image2: 'https://home.ripley.com.pe/Attachment/WOP_5/2004270712128/2004270712128-1.jpg'
 	}
@@ -76,14 +76,15 @@ export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(Products);
-        }, 2000);    // 2 s
+        }, 500);    // 2 s
     });
 }
 
-export const getProduct = () => {
+export const getProduct = (id) => {
     return new Promise((res) => {
+		const prod = Products.find(p => p.id === parseInt(id))
         setTimeout(() => {
-            res(Products[0]);
-        }, 900);      
+            res(prod);
+        }, 500);
     });
 }

@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Navbar from './components/navegation/navbar';
+import Navbar from './components/NavBar/NavBar';
 import Home from './components/pages/home';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -14,9 +14,11 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/ItemListContainer" exact element={<ItemListContainer/>} />
-          <Route path="/Detail" exact element={<ItemDetailContainer/>} />
+          <Route path="/" element={<ItemListContainer/>} />
+          <Route path="/Home" element={<Home/>} />
+          <Route path="/ItemListContainer"  element={<ItemListContainer/>} />
+          <Route path="/category/:id"  element={<ItemListContainer/>} />
+          <Route path="/item/:productId" element={<ItemDetailContainer/>} />
         </Routes>
 
       </BrowserRouter>

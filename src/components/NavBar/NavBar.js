@@ -15,20 +15,20 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Inicio</Nav.Link>
+                        <Nav.Link href="/Home">Inicio</Nav.Link>
                         <Nav.Link href="/ItemListContainer">Productos</Nav.Link>
                         <Nav.Link href="/">Quienes somos</Nav.Link>
                         <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#">Celulares</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Computadoras</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Laptops</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/Celulares">Celulares</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/Computadoras">Computadoras</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/Laptops">Laptops</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Hardware</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/Hardware">Hardware</NavDropdown.Item>
                         </NavDropdown>
                         
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#" ><CartWidget>4</CartWidget></Nav.Link>
+                        <Nav.Link href="#" ><CartWidget>0</CartWidget></Nav.Link>
                         <Nav.Link eventKey={2} href="#">
                             Iniciar sesión
                         </Nav.Link>
