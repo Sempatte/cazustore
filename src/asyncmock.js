@@ -87,7 +87,3 @@ export const getProduct = () => {
         }, 900);      
     });
 }
-
-
-
-// TODO: Acomodar ItemDetail frontend
