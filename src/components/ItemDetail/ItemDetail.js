@@ -21,7 +21,7 @@ const ItemDetail = ({ product }) => {
                 <aside className="col-sm-5 border-right">
                     <article className="gallery-wrap">
                         <div className="img-big-wrap">
-                            <div> <img alt={product.image1} src={product.image1} /></div>
+                            <div> <img className="img-big" alt={product.image1} src={product.image1} /></div>
                         </div>
 
                     </article>

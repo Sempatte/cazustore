@@ -2,6 +2,7 @@ import React from 'react';
 import '../CartWidget/CartWidget'
 import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../../Logo.png'
+import {Link} from 'react-router-dom'
 import{ Navbar, Nav, NavDropdown, Container}  from "react-bootstrap";
 
 const NavBar = () => {
@@ -15,23 +16,19 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/Home">Inicio</Nav.Link>
-                        <Nav.Link href="/ItemListContainer">Productos</Nav.Link>
-                        <Nav.Link href="/">Quienes somos</Nav.Link>
-                        <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="/category/Celulares">Celulares</NavDropdown.Item>
-                            <NavDropdown.Item href="/category/Computadoras">Computadoras</NavDropdown.Item>
-                            <NavDropdown.Item href="/category/Laptops">Laptops</NavDropdown.Item>
+                        <Link className="nav-link" to="/home">Inicio</Link>
+                        <Link className="nav-link" to="/products">Productos</Link>
+                        <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+                            <Link className="dropdown-item" to="/category/Celular">Celulares</Link>
+                            <Link className="dropdown-item" to="/category/Computadora">Computadoras</Link>
+                            <Link className="dropdown-item" to="/category/Laptop">Laptops</Link>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/category/Hardware">Hardware</NavDropdown.Item>
-                        </NavDropdown>
-                        
+                            <Link className="dropdown-item" to="/category/Hardware">Hardware</Link>
+                        </NavDropdown>                      
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#" ><CartWidget>0</CartWidget></Nav.Link>
-                        <Nav.Link eventKey={2} href="#">
-                            Iniciar sesión
-                        </Nav.Link>
+                        <Link className="nav-link" to="#" ><CartWidget>0</CartWidget></Link>
+                        <Link className="nav-link" to="#">Iniciar sesión</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

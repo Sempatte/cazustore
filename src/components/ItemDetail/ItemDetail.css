@@ -12,3 +12,7 @@
     font-weight: 400;
     text-decoration: line-through;
 }
+
+.img-big {
+    max-width:100%;
+}

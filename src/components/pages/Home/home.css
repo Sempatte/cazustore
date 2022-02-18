@@ -1,0 +1,21 @@
+.page-top {
+    scroll-padding-top: 3.5rem;
+}
+header {
+    padding-top: 9.5rem;
+    padding-bottom: 6rem;
+}
+section {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+}
+
+header.bg-primary.bg-gradient.text-white {
+    background-color: #1a1c1c !important;
+}
+
+ul > li {
+    list-style-type: none;
+    font-weight: 500;
+    
+}

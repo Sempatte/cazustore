@@ -7,7 +7,7 @@ function ItemCount(props) {
     const [count, setCount] = useState(props.initial)
 
     const decrement = () => {
-        if (count > 0){
+        if (count > 1){
             setCount(count - 1)
         }
     }
