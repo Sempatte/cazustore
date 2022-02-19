@@ -20,7 +20,7 @@ const home = () => {
                     <div className="row gx-4 justify-content-center">
                         <div className="col-lg-8">
                             <h2>Acerca de CazuStore</h2>
-                            <p className="lead">En esta tienda encontrarás los siguientes artículos:</p>
+                            <span className="lead">En esta tienda encontrarás los siguientes artículos:</span>
                             <ul>
                                 <li>Laptops</li>
                                 <li>Computadoras</li>
@@ -38,7 +38,7 @@ const home = () => {
                     <div className="row gx-4 justify-content-center">
                         <div className="col-lg-8">
                             <h2>Garantia</h2>
-                            <p className="lead">Todos nuestros productos tienen garatia por 1 año, aplicando nuestra politica de garantia.</p>
+                            <span className="lead">Todos nuestros productos tienen garatia por 1 año, aplicando nuestra politica de garantia.</span>
                         </div>
                     </div>
                 </div>
@@ -49,13 +49,13 @@ const home = () => {
                     <div className="row gx-4 justify-content-center">
                         <div className="col-lg-8">
                             <h2>Seguridad</h2>
-                            <p className="lead">Todos tus pagos a travez de esta web estan encriptados con SSL y son totalmente seguros.</p>
+                            <span className="lead">Todos tus pagos a travez de esta web estan encriptados con SSL y son totalmente seguros.</span>
                         </div>
                     </div>
                 </div>
             </section>
             <footer className="py-5 bg-dark">
-                <div className="container px-4"><p className="m-0 text-center text-white">Copyright &copy; CazuStore</p></div>
+                <div className="container px-4"><span className="m-0 text-center text-white">Copyright &copy; CazuStore</span></div>
             </footer>         
 
         </div>

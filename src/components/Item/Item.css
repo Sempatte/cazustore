@@ -5,7 +5,7 @@
 
 .product-grid {
     background-color: #fff;
-    font-family: 'Lato', sans-serif;
+    font-family: Montserrat,Helvetica,Arial,sans-serif !important;
     text-align: center;
 }
 
@@ -120,6 +120,7 @@
 }
 
 .product-grid .product-content {
+    text-align: left;
     background-color: #fff;
     padding: 10px 10px 10px;
     position: relative;
@@ -138,6 +139,12 @@
     margin: 0 0 7px;
 }
 
+.product-grid .brand {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
 .product-grid .title a {
     text-decoration: none !important;
     color: #222;
@@ -149,9 +156,13 @@
 }
 
 .product-grid .price {
-    color: #333;
+    color: #e75353;
     font-size: 16px;
     font-weight: 600;
+}
+
+.product-grid .price span {
+    font-size: 14.5px !important;
 }
 
 @media screen and (max-width:990px) {

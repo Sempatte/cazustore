@@ -1,3 +1,5 @@
+
+
 .product-button-group {
     position: relative;
 
@@ -14,7 +16,7 @@
 .add-to-cart {
     border: none;
     cursor: pointer;
-    color: var(--text-color);
+    color: #242424;
     background: #f4f4f4;
     font-size: 14px;
     width: calc(100% - 75px);
@@ -33,7 +35,7 @@
 
 .add-to-cart:hover {
     color: #fff;
-    background: var(--text-color);
+    background: #242424
 }
 
 .add-to-cart i:hover {

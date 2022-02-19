@@ -28,7 +28,7 @@ const NavBar = () => {
                     </Nav>
                     <Nav>
                         <Link className="nav-link" to="#" ><CartWidget>0</CartWidget></Link>
-                        <Link className="nav-link" to="#">Iniciar sesión</Link>
+                        <Link className="nav-link" to="/login">Iniciar sesión</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

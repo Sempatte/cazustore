@@ -26,10 +26,10 @@ const Item = ( {product} ) => {
                             <img alt="Image1" className="pic-1" src={product.image1} />
                             <img alt="Image2" className="pic-2" src={product.image2} />
                         </Link>
-                        {product.hot === true && <span className="product-sale-label" ><span role="img" aria-label="fire">🔥</span></span>}
+                        {product.hot === true && <span className="product-sale-label" ><span role="img" style={{cursor: 'default'}} aria-label="fire">🔥</span></span>}
                         <ul className="product-links">
-                            <li><Link to = "#"><FaHeart /></Link></li>
-                            <li><Link to = "#"><FaRandom /></Link></li>
+                            {/*<li><Link to = "#"><FaHeart /></Link></li>
+                            <li><Link to = "#"><FaRandom /></Link></li> */}
                             <li><Link to={`/item/${product.id}`}><FaEye /></Link></li>
                             <li><a onClick={() => {alert("Producto agregado al carrito.")}} ><FaShoppingCart /></a></li>
                             
@@ -37,7 +37,8 @@ const Item = ( {product} ) => {
                         
                     </div>
                     <div className="product-content">
-                        <h3 className="title"><Link to={`/item/${product.id}`} >{product.name}</Link></h3>
+                        <label className="brand">{product.brand}</label>
+                        <label className="title"><Link to={`/item/${product.id}`} >{product.name}</Link></label>
                         <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
                     </div>
                 </div>
