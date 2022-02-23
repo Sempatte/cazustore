@@ -20,6 +20,7 @@ const ItemDetail = ({ product, quantity }) => {
     }
 
     const onAdd = quantity => {
+        console.log(option)
         setCounter(quantity)
         console.log(quantity)
         if (quantity > 1) {
