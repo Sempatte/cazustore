@@ -1,11 +1,31 @@
 import React from 'react';
+import { useEffect, useState } from 'react'
 import '../CartWidget/CartWidget'
 import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../../Logo.png'
 import {Link} from 'react-router-dom'
 import{ Navbar, Nav, NavDropdown, Container}  from "react-bootstrap";
+import { getBrands, getCategories } from '../../asyncmock';
 
 const NavBar = () => {
+    const [brands, setBrands] = useState([]);
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+
+        getCategories().then((categories) => {
+            setCategories(categories);
+        }).catch((err) =>{
+            console.log(err);
+        })
+        
+        getBrands().then((brands) => {
+            setBrands(brands);
+        }).catch((err) =>{
+            console.log(err);
+        })
+        
+    },[])
+
     return (
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -16,15 +36,23 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link className="nav-link" to="/home">Inicio</Link>
-                        <Link className="nav-link" to="/products">Productos</Link>
+                        <Link className="nav-link" to="/home">Inicio</Link>                        
                         <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                            <Link className="dropdown-item" to="/category/Celular">Celulares</Link>
+                            {categories.map((category) => (
+                                <Link key={category.id} className="dropdown-item" to={`/category/${category.name}`}>{category.name}</Link>
+                            ))}
+                            {/* <Link className="dropdown-item" to="/category/Celular">Celulares</Link>
                             <Link className="dropdown-item" to="/category/Computadora">Computadoras</Link>
                             <Link className="dropdown-item" to="/category/Laptop">Laptops</Link>
                             <NavDropdown.Divider />
-                            <Link className="dropdown-item" to="/category/Hardware">Hardware</Link>
-                        </NavDropdown>                      
+                            <Link className="dropdown-item" to="/category/Hardware">Hardware</Link> */}
+                        </NavDropdown>
+                        <Link className="nav-link" to="/products">Todos los productos</Link>
+                        <NavDropdown title="Marcas" id="collasible-nav-dropdown">
+                            {brands.map((brand) => (
+                                <Link key={brand.id} className="dropdown-item" to={`/brand/${brand.name}`}>{brand.name}</Link>
+                            ))}
+                        </NavDropdown>
                     </Nav>
                     <Nav>
                         <Link className="nav-link" to="#" ><CartWidget>0</CartWidget></Link>

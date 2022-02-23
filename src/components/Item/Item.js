@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { FaHeart,  FaRandom, FaEye, FaShoppingCart } from "react-icons/fa";
+import {FaEye, FaShoppingCart } from "react-icons/fa";
 import  './Item.css'
 
 const Item = ( {product} ) => {
@@ -30,8 +30,8 @@ const Item = ( {product} ) => {
                         <ul className="product-links">
                             {/*<li><Link to = "#"><FaHeart /></Link></li>
                             <li><Link to = "#"><FaRandom /></Link></li> */}
-                            <li><Link to={`/item/${product.id}`}><FaEye /></Link></li>
-                            <li><a onClick={() => {alert("Producto agregado al carrito.")}} ><FaShoppingCart /></a></li>
+                            <li><button ><Link to={`/item/${product.id}`}><FaEye style={{color: '#fff'}} /></Link></button></li>
+                            <li><button onClick={() => {alert("Producto agregado al carrito.")}} ><FaShoppingCart /></button></li>
                             
                         </ul>
                         

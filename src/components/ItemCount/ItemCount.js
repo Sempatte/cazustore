@@ -2,9 +2,9 @@ import {useState} from 'react';
 import React from 'react';
 import './ItemCount.css'
 
-function ItemCount(props) {
+function ItemCount({initial, stock, onAdd}) {
 
-    const [count, setCount] = useState(props.initial)
+    const [count, setCount] = useState(initial)
 
     const decrement = () => {
         if (count > 1){
@@ -14,7 +14,7 @@ function ItemCount(props) {
 
     const increment = () => {
         
-        if (count >= props.stock){
+        if (count >= stock){
             alert("No hay más stock")
         } else {
             setCount(count + 1)
@@ -34,7 +34,7 @@ function ItemCount(props) {
             </div>
             <div className="product-button-group">
                 <button onClick={() => {
-                    props.onAdd(count);
+                    onAdd(count);
                     restartCount();
                 }
                 } className="add-to-cart">AÑADIR AL CARRITO</button>

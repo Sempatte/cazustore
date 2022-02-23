@@ -101,7 +101,7 @@
     display: inline-block;
 }
 
-.product-grid .product-links li a,
+.product-grid .product-links li button,
 .product-grid .product-links li Link {
     cursor:default;
     color: #fff;
@@ -112,9 +112,10 @@
     height: 40px;
     display: block;
     transition: all 0.3s ease 0s;
+    border: none;
 }
 
-.product-grid .product-links li a:hover {
+.product-grid .product-links li button:hover {
     color: #fff;
     background: #dd0059;
 }

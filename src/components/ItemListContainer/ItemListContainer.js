@@ -2,7 +2,7 @@ import React from 'react'
 import { ItemList } from '../ItemList/ItemList'
 import { Loader } from '../Loader/Loader'
 import { useEffect, useState } from 'react'
-import { getProducts, getByCategory } from '../../asyncmock'
+import { getProducts, getByCategory, getByBrand } from '../../asyncmock'
 import { useParams } from 'react-router-dom'
 
 
@@ -11,10 +11,11 @@ const ItemListContainer = () => {
     const [loader, setLoader] = useState(true);
 
     const {categoryName} = useParams()
+    const {brandName} = useParams()
 
 
     useEffect(() => {
-        if (categoryName === undefined) {
+        if (categoryName === undefined && brandName === undefined) {
             getProducts().then((products) => {
                 setLoader(false);
                 setProducts(products);
@@ -22,15 +23,25 @@ const ItemListContainer = () => {
                 console.log(err);
             })
         } else {
-            getByCategory(categoryName).then((products) => {
-                setLoader(false);
-                setProducts(products);
-            }).catch((err) =>{
-                console.log(err);
-            })
+            if (categoryName !== undefined){
+                getByCategory(categoryName).then((products) => {
+                    setLoader(false);
+                    setProducts(products);
+                }).catch((err) =>{
+                    console.log(err);
+                })
+            } else if (brandName !== undefined){
+                getByBrand(brandName).then((products) => {
+                    setLoader(false);
+                    setProducts(products);
+                }).catch((err) =>{
+                    console.log(err);
+                })
+            }
+   
         }
         
-    },[categoryName])
+    },[categoryName, brandName])
 
     return(
         <>

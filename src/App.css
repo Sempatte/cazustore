@@ -1,4 +1,12 @@
+:root{
+  --background-color: #fff;
+}
+
+html {
+  background-color: var(--background-color);
+}
+
 .App {
-  background-color: #fff;
+  background-color:  var(--background-color);
   text-align: center;
 }

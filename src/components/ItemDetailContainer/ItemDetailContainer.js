@@ -4,34 +4,46 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
 import { getProduct } from '../../asyncmock'
 import { Loader } from '../Loader/Loader.js'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
-  const [product, setProduct] = useState({})
-  const [loader, setLoader] = useState(true)
+    const [product, setProduct] = useState({})
+    const [loading, setLoader] = useState(true)
+    const navigate = useNavigate();
+    const { productId } = useParams()
 
-  const {productId} = useParams()
+    useEffect(() => {
+        if (productId !== undefined) {
+            getProduct(productId).then(product => {
+                if (product === undefined) {
+                    navigate('/products');
+                } else {
+                    setLoader(false);
+                    setProduct(product);
+                }
 
-  useEffect(() => {
-      getProduct(productId).then(product => {
-          setLoader(false);
-          setProduct(product);
-      });
-  }, [])
+            }).catch((err) => {
+                console.log(err)
+            });
+        } else {
+            navigate('/products');
+        }
 
-  return (
-    <>
-    {loader ? <Loader /> : null }
-    {loader ? null : 
-      <div className="container pt-5">
-        <ItemDetail product={product}/>
-      </div>
-    }
+    }, [productId, navigate])
 
-    </>
+    return (
+        <>
+            {loading ? <Loader /> : null}
+            {loading ? null :
+                <div className="container pt-5">
+                    <ItemDetail product={product} />
+                </div>
+            }
 
-  )
+        </>
+
+    )
 }
 
 export default ItemDetailContainer
