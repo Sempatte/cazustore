@@ -9,7 +9,7 @@ const home = () => {
             <header className="bg-primary bg-gradient text-white" >
                 <div className="container px-4 text-center">    
                     <h1 className="fw-bolder">Bienvenido a CazuStore</h1>
-                    <p className="lead">La tienda #1 de Perú!</p>
+                    <p className="lead">La tienda #1 de Perú</p>
                     <Link className="btn btn-lg btn-dark" to="/products">Empieza comprando</Link>
                 </div>
             </header>
