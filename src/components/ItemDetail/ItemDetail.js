@@ -41,7 +41,7 @@ const ItemDetail = ({ id,name,category,options,brand,description,color,initial_p
             description,
         }
 
-        if (addItem(productToAdd, quantity)) {
+        if (addItem(productToAdd, quantity)) { // Comprueba si el articulo se encuentra o no en el carrito.
             setCounter(quantity)
             setToastBody(`Se agregaron ${quantity} articulos al carrito`)
             toggleShow();

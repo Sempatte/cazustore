@@ -1,12 +1,12 @@
-import React  from 'react';
+import React from 'react';
 import { createContext, useState } from "react";
 
 const Context = createContext();
 
-export const CartContextProvider = ({children}) => {
+export const CartContextProvider = ({ children }) => {
     let st = undefined;
 
-    localStorage.getItem('cart') === null ? st = []: st = JSON.parse(localStorage.getItem('cart')) // Consulta si el carrito existe en el LocalStorage
+    localStorage.getItem('cart') === null ? st = [] : st = JSON.parse(localStorage.getItem('cart')) // Consulta si el carrito existe en el LocalStorage, caso contrario devuelve un []
 
     const [cart, setCart] = useState(st)
     console.log(cart)
@@ -16,18 +16,18 @@ export const CartContextProvider = ({children}) => {
         return cart.length
     }
 
-    function amount(item){
+    function amount(item) {
         return item.total;
-      }
-      
-      function sum(prev, next){
-        return prev + next;
-      }
-      
-      
+    }
 
-    const getTotal = () => { 
-        let total = cart.map(amount).reduce(sum,0);
+    function sum(prev, next) {
+        return prev + next;
+    }
+
+
+
+    const getTotal = () => {
+        let total = cart.map(amount).reduce(sum, 0);
         console.log(total)
         return total
     }
@@ -40,15 +40,15 @@ export const CartContextProvider = ({children}) => {
             total: productToAdd.final_price * quantity,
         }
 
-        if(isInCart(productToAdd.id)) {
-            return false // Esta en el carrito
+        if (isInCart(productToAdd.id)) {
+            return false // FALSE: Esta en el carrito
         }
         let sCart = [...cart, newObj]
         setCart(sCart)
-        localStorage.setItem('cart', JSON.stringify(sCart)) //Agrega al local storage el carrito
+        localStorage.setItem('cart', JSON.stringify(sCart)) //Agrega al LocalStorage el carrito
 
-        return true // No esta en el carrito
-               
+        return true // TRUE: No esta en el carrito
+
     }
 
     const isInCart = (id) => {
@@ -78,7 +78,7 @@ export const CartContextProvider = ({children}) => {
             clearCart,
             removeItem,
             getTotal,
-            }}>
+        }}>
             {children}
         </Context.Provider>
     )
