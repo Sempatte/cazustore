@@ -37,7 +37,8 @@ const ItemDetailContainer = () => {
             {loading ? <Loader /> : null}
             {loading ? null :
                 <div className="container pt-5">
-                    <ItemDetail product={product} />
+                    {/* <ItemDetail product={product} /> */}
+                    <ItemDetail {...product} />
                 </div>
             }
 

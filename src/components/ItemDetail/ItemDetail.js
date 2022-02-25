@@ -1,35 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 import Select from '../Select/Select';
 import './ItemDetail.css'
 import { Link } from "react-router-dom";
 import Logo from '../../Logo.png'
 import{ Toast, ToastContainer}  from "react-bootstrap";
+import CartContext from '../../context/CartContext'
 
-const ItemDetail = ({ product, quantity }) => {
-    const [counter, setCounter] = useState(quantity);
+
+const ItemDetail = ({ id,name,category,options,brand,description,color,initial_price,final_price,hot,stock,image1,image2 }) => {
+    const [counter, setCounter] = useState(0);
+
+    const { addItem } = useContext(CartContext)
     const [option, setOption] = useState();
     const [toastBody, setToastBody] = useState();
     const [show, setShow] = useState(false);
-    const options = product.options;
+
+    
+
     
     const toggleShow = () => setShow(!show);
-
+    
     const optionSelected = (value) => {
         setOption(value)
     }
 
+
     const onAdd = quantity => {
-        console.log(option)
-        setCounter(quantity)
-        console.log(quantity)
-        if (quantity > 1) {
-            console.log(`Se agregaron ${quantity} articulos al carrito`);
-        } else {
-            console.log(`Se agrego ${quantity} articulo al carrito`);
+    
+        
+        const productToAdd = {
+            id,
+            name,
+            initial_price,
+            final_price,
+            image1,
+            color,
+            brand,
+            category,
+            description,
         }
-        setToastBody(`Se agregaron ${quantity} articulos al carrito`)
-        toggleShow();
+
+        if (addItem(productToAdd, quantity)) {
+            setCounter(quantity)
+            setToastBody(`Se agregaron ${quantity} articulos al carrito`)
+            toggleShow();
+        } else {
+            setToastBody(`El producto ya se encuentra en tu carrito.`)
+            toggleShow();
+        }
+
     }
 
 
@@ -59,7 +79,7 @@ const ItemDetail = ({ product, quantity }) => {
                 <aside className="col-sm-5 border-right">
                     <article className="gallery-wrap">
                         <div className="img-big-wrap">
-                            <div> <img className="img-big" alt={product.image1} src={product.image1} /></div>
+                            <div> <img className="img-big" alt={image1} src={image1} /></div>
                         </div>
 
                     </article>
@@ -67,29 +87,29 @@ const ItemDetail = ({ product, quantity }) => {
                 <aside className="col-sm-7">
                     <article className="card-body p-5">
                         <h3 className="title mb-3">                        
-                            {product.name}
-                            {product.hot === true && <span role="img" aria-label="fire">🔥</span>}
+                            {name}
+                            {hot === true && <span role="img" aria-label="fire">🔥</span>}
                         </h3>
                         <label className="price-detail-wrap">
                             <span className="price h3 text-warning">
-                                <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
-                                {/* <span className="currency">S/.</span><span className="num">{product.final_price}</span> */}
+                                <div className="price"><span>S/{initial_price}</span> S/{final_price}</div>
+                                {/* <span className="currency">S/.</span><span className="num">{final_price}</span> */}
                             </span>
                         </label>
                         <dl className="item-property">
 
                             <dd>
-                                <p>{product.description}</p>
+                                <p>{description}</p>
                             </dd>
                         </dl>
 
                         <dl className="param param-feature">
                             <dt>Color</dt>
-                            <dd>{product.color}</dd>
+                            <dd>{color}</dd>
                         </dl>
                         <dl className="param param-feature">
                             <dt>Stock</dt>
-                            <dd>{product.stock}</dd>
+                            <dd>{stock}</dd>
                         </dl>
                         
                         <hr />
@@ -101,7 +121,7 @@ const ItemDetail = ({ product, quantity }) => {
                             <dl className="param param-feature">
                             <Select options={options} onSelect={optionSelected} defaultOption={1} />
                         </dl>
-                                <ItemCount  initial={1} stock={product.stock} onAdd={onAdd} /></>
+                                <ItemCount  initial={1} stock={stock} onAdd={onAdd} /></>
                             }
                             
                         </div>

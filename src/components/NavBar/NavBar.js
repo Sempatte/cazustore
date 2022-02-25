@@ -1,13 +1,15 @@
 import React from 'react';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import '../CartWidget/CartWidget'
 import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../../Logo.png'
 import {Link} from 'react-router-dom'
 import{ Navbar, Nav, NavDropdown, Container}  from "react-bootstrap";
 import { getBrands, getCategories } from '../../asyncmock';
+import CartContext from '../../context/CartContext';
 
 const NavBar = () => {
+    const { getLenghtCart } = useContext(CartContext)
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     useEffect(() => {
@@ -55,7 +57,7 @@ const NavBar = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Link className="nav-link" to="#" ><CartWidget>0</CartWidget></Link>
+                        <Link className="nav-link" to="#" ><CartWidget>{getLenghtCart()}</CartWidget></Link>
                         <Link className="nav-link" to="/login">Iniciar sesión</Link>
                     </Nav>
                 </Navbar.Collapse>
