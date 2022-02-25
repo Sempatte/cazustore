@@ -1,6 +1,6 @@
 
 # **CazuStore**
-# *Curso de React JS *
+# *Curso de React JS .*
 ### **Programador: Sebastian De la Torre**
 
 - *Correo: sebastiandelatorre77@gmail.com*
