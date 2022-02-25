@@ -22,7 +22,7 @@ const ItemDetail = ({ id,name,category,options,brand,description,color,initial_p
     const toggleShow = () => setShow(!show);
     
     const optionSelected = (value) => {
-        setOption(value)
+        setOption(parseInt(value))
     }
 
 
@@ -37,6 +37,7 @@ const ItemDetail = ({ id,name,category,options,brand,description,color,initial_p
             image1,
             color,
             brand,
+            option,
             category,
             description,
         }

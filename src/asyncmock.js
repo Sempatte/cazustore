@@ -173,6 +173,15 @@ const Products = [
 
 ]
 
+export const getOptionText = (productID, option) => {
+    return new Promise((resolve) => {
+        const prod = Products.find(p => p.id === parseInt(productID))
+        setTimeout(() => {
+            resolve(prod.options[option-1]);
+        }, 200);
+    })
+}
+
 export const getBrands = () => {
     return new Promise((resolve) => {
         setTimeout(() => {

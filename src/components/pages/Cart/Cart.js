@@ -1,12 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import CartContext from '../../../context/CartContext'
 import { Link } from 'react-router-dom'
+import { BsArrowLeftShort, BsFillTrashFill } from "react-icons/bs";
+import { confirm } from 'react-bootstrap-confirmation';
 import './Cart.css'
 
 function Cart() {
     const { clearCart, removeItem, getTotal } = useContext(CartContext)
     const cart = JSON.parse(localStorage.getItem('cart'));
     const [productsInCart, setProductsInCart] = useState(false);
+
+    const AlertClearCart = async () => {
+        const result = await confirm('Seguro que quieres borrar tu carrito?');
+        if (result) { clearCart(); setProductsInCart(false) };
+    };
+
+    
 
     const formatter = new Intl.NumberFormat('es-PE', {
         style: 'currency',
@@ -39,12 +48,12 @@ function Cart() {
                                                         <tbody>
                                                             <tr>
                                                                 <td width={120}>
-                                                                    <img alt={item.image1} src={item.image1} width="100%" height="100%"/>
+                                                                    <img alt={item.image1} src={item.image1} width="100%" height="100%" />
 
                                                                 </td>
                                                                 <td className="desc">
                                                                     <h4>
-                                                                        <Link  target="_blank" style={{ textDecoration: 'none' }} to={`/item/${item.id}`} className="text-navy">
+                                                                        <Link target="_blank" style={{ textDecoration: 'none' }} to={`/item/${item.id}`} className="text-navy">
                                                                             {item.name}
                                                                         </Link>
                                                                     </h4>
@@ -53,7 +62,7 @@ function Cart() {
                                                                     </p>
 
                                                                     <div className="m-t-sm">
-                                                                        <button onClick={() => removeItem(item.id)} type="button" className="btn btn-danger btn-sm">Delete</button>
+                                                                        <button onClick={() => removeItem(item.id)} type="button" className="btn btn-danger btn-sm"><BsFillTrashFill /></button>
                                                                     </div>
                                                                 </td>
                                                                 <td>
@@ -61,7 +70,7 @@ function Cart() {
                                                                     &nbsp;<s className="small text-muted"> {formatter.format(item.initial_price)}</s>
                                                                 </td>
                                                                 <td width={65}>
-                                                                    <input type="text" className="form-control" disabled value={item.quantity} />
+                                                                    <input type="text" className="form-control text-center" disabled value={item.quantity} />
                                                                 </td>
                                                                 <td>
                                                                     <h5>
@@ -80,8 +89,8 @@ function Cart() {
 
                                 {productsInCart && (
                                     <div className="ibox-content">
-                                        
-                                        <Link to="/products"><button className="btn btn-white"><i className="fa fa-arrow-left" />Continuar comprando</button></Link>
+
+                                        <Link to="/products"><button className="btn btn-white"><BsArrowLeftShort />Continuar comprando</button></Link>
                                     </div>
                                 )}
 
@@ -104,12 +113,9 @@ function Cart() {
                                     {productsInCart === true && (
                                         <div className="m-t-sm">
                                             <div className="btn-group">
-                                                <button onClick={() => alert("Checkout")} className="btn btn-primary btn-sm"><i className="fa fa-shopping-cart" /> Checkout</button>
-                                                <button onClick={() => {
-                                                    clearCart();
-                                                    setProductsInCart(false)
-                                                }
-                                                } href="#" className="btn btn-warning btn-sm"> Borrar carrito</button>
+                                                <button onClick={() => alert("Checkout")} className="btn btn-primary btn-sm">Checkout</button>
+                                                <button onClick={AlertClearCart}
+                                                    href="#" className="btn btn-warning btn-sm"> Borrar carrito</button>
                                             </div>
                                         </div>
                                     )}
