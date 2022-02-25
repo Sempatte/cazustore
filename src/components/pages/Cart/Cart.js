@@ -44,7 +44,7 @@ function Cart() {
                                                                 </td>
                                                                 <td className="desc">
                                                                     <h4>
-                                                                        <Link style={{ textDecoration: 'none' }} to={`/item/${item.id}`} className="text-navy">
+                                                                        <Link  target="_blank" style={{ textDecoration: 'none' }} to={`/item/${item.id}`} className="text-navy">
                                                                             {item.name}
                                                                         </Link>
                                                                     </h4>
@@ -80,8 +80,8 @@ function Cart() {
 
                                 {productsInCart && (
                                     <div className="ibox-content">
-                                        <button className="btn btn-primary pull-right"><i className="fa fa fa-shopping-cart" /> Checkout</button>
-                                        <button className="btn btn-white"><i className="fa fa-arrow-left" /> Continue shopping</button>
+                                        
+                                        <Link to="/products"><button className="btn btn-white"><i className="fa fa-arrow-left" />Continuar comprando</button></Link>
                                     </div>
                                 )}
 
