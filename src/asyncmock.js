@@ -37,7 +37,7 @@ const Products = [
     {
         id: 2,
         name: 'LAPTOP LENOVO IDEAPAD 3 AMD RYZEN 3 12GB RAM 256GB SSD 15.6',
-        options: [{ value: 1, text: "12GB RAM" }, { value: 2, text: "16GB RAM" }, { value: 3, text: "32GB RAM 1TB SSD" }],
+        options: [{ value: 1, text: "12GB RAM"}, { value: 2, text: "16GB RAM" }, { value: 3, text: "32GB RAM 1TB SSD" }],
         category: 'Laptop',
         brand: 'Lenovo',
         description: "Description consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc",
@@ -98,7 +98,7 @@ const Products = [
     {
         id: 6,
         name: 'CELULAR SAMSUNG GALAXY A12 6.5" 64GB 48MP+5MP+2MP+2MP',
-        options: [{ value: 1, text: "GALAXY A12 64GB" }, { value: 1, text: "GALAXY A12 128GB" }],
+        options: [{ value: 1, text: "GALAXY A12 64GB" }, { value: 2, text: "GALAXY A12 128GB" }],
         brand: 'Samsung',
         category: 'Celular',
         description: "Samsung tiene para ti el modelo Galaxy A12 que está equipado con un potente procesador Octa Core y con 4GB de RAM para que puedas ejecutar sin problemas todas las aplicaciones que desees",
@@ -128,7 +128,7 @@ const Products = [
     {
         id: 8,
         name: 'CELULAR HUAWEI NOVA 8I 6GB 128GB DUAL SIM',
-        options: [{ value: 1, text: "NOVA 8I 128GB" }, { value: 1, text: "NOVA 8I 256GB" }],
+        options: [{ value: 1, text: "NOVA 8I 128GB" }, { value: 2, text: "NOVA 8I 256GB" }],
         brand: 'Huawei',
         category: 'Celular',
         description: "Nuevo smartphone Huawei Nova 8I, memoria RAM 6GB, memoria interna 128GB y sistema operativo EMUI 11.0 (basado en Android 10).",

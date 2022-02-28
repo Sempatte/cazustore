@@ -9,7 +9,6 @@ export const CartContextProvider = ({ children }) => {
     localStorage.getItem('cart') === null ? st = [] : st = JSON.parse(localStorage.getItem('cart')) // Consulta si el carrito existe en el LocalStorage, caso contrario devuelve un []
 
     const [cart, setCart] = useState(st)
-    console.log(cart)
 
 
     const getLenghtCart = () => {
@@ -28,7 +27,6 @@ export const CartContextProvider = ({ children }) => {
 
     const getTotal = () => {
         let total = cart.map(amount).reduce(sum, 0);
-        console.log(total)
         return total
     }
 
@@ -40,7 +38,7 @@ export const CartContextProvider = ({ children }) => {
             total: productToAdd.final_price * quantity,
         }
 
-        if (isInCart(productToAdd.id)) {
+        if (isInCart(productToAdd.id, productToAdd.option.value)) {
             return false // FALSE: Esta en el carrito
         }
         let sCart = [...cart, newObj]
@@ -51,21 +49,18 @@ export const CartContextProvider = ({ children }) => {
 
     }
 
-    const isInCart = (id) => {
-        console.log(cart.some(p => p.id === id))
-        return cart.some(p => p.id === id)
+    const isInCart = (id, optionValue) => {
+        return cart.some(p => p.id === id && p.option.value === optionValue)
     }
 
     const clearCart = () => { // Borra todo el carrito
         localStorage.removeItem('cart');
-        console.log("carro borrado.")
         setCart([])
     }
 
-    const removeItem = (id) => {
-        const newCart = cart.filter(p => p.id !== id)
+    const removeItem = (id, oValue) => {
+        const newCart = cart.filter(p => p.id !== id || p.option.value !== oValue)
         setCart(newCart)
-        console.log("nuevo carro: ", newCart)
         localStorage.setItem('cart', JSON.stringify(newCart))
     }
 

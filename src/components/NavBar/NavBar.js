@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 import{ Navbar, Nav, NavDropdown, Container}  from "react-bootstrap";
 import { getBrands, getCategories } from '../../asyncmock';
 import CartContext from '../../context/CartContext';
+import './Navbar.css'
 
 const NavBar = () => {
     const { getLenghtCart } = useContext(CartContext)
@@ -57,8 +58,8 @@ const NavBar = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Link className="nav-link" to="#" ><CartWidget>{getLenghtCart()}</CartWidget></Link>
-                        <Link className="nav-link" to="/login">Iniciar sesión</Link>
+                        <Link className="nav-link" to="/cart" ><CartWidget>{getLenghtCart()}</CartWidget></Link>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>

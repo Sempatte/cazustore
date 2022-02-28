@@ -1,31 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import CartContext from '../../../context/CartContext'
 import { Link } from 'react-router-dom'
 import { BsArrowLeftShort, BsFillTrashFill } from "react-icons/bs";
 import { confirm } from 'react-bootstrap-confirmation';
 import './Cart.css'
+import {formatter} from '../../../utils/formatter'
 
 function Cart() {
     const { clearCart, removeItem, getTotal } = useContext(CartContext)
     const cart = JSON.parse(localStorage.getItem('cart'));
-    const [productsInCart, setProductsInCart] = useState(false);
+
 
     const AlertClearCart = async () => {
         const result = await confirm('Seguro que quieres borrar tu carrito?');
-        if (result) { clearCart(); setProductsInCart(false) };
+        if (result) { clearCart() };
     };
 
-    
 
-    const formatter = new Intl.NumberFormat('es-PE', {
-        style: 'currency',
-        currency: 'PEN',
-    });
-
-    useEffect(() => (
-        cart === null || cart.length === 0 ? setProductsInCart(false) : setProductsInCart(true)
-
-    ), [])
 
     return (
 
@@ -40,11 +31,11 @@ function Cart() {
                                     <h5>Tu carrito</h5>
                                 </div>
                                 {
-                                    productsInCart ? (
-                                        cart.map(item => (
-                                            <div className="ibox-content">
+                                    getTotal() > 0 ? (
+                                        cart.map((item, index) => (
+                                            <div key={index} className="ibox-content">
                                                 <div className="table-responsive">
-                                                    <table className="table shoping-cart-table">
+                                                    <table  className="table shoping-cart-table">
                                                         <tbody>
                                                             <tr>
                                                                 <td width={120}>
@@ -54,15 +45,16 @@ function Cart() {
                                                                 <td className="desc">
                                                                     <h4>
                                                                         <Link target="_blank" style={{ textDecoration: 'none' }} to={`/item/${item.id}`} className="text-navy">
-                                                                            {item.name}
+                                                                            {item.name} 
                                                                         </Link>
                                                                     </h4>
-                                                                    <p className="small">
+                                                                    <label > {item.option.text}</label>
+                                                                    <label className="small">
                                                                         {item.description}
-                                                                    </p>
+                                                                    </label>
 
                                                                     <div className="m-t-sm">
-                                                                        <button onClick={() => removeItem(item.id)} type="button" className="btn btn-danger btn-sm"><BsFillTrashFill /></button>
+                                                                        <button onClick={() => removeItem(item.id, item.option.value)} type="button" className="btn btn-danger btn-sm"><BsFillTrashFill /></button>
                                                                     </div>
                                                                 </td>
                                                                 <td>
@@ -87,7 +79,7 @@ function Cart() {
 
                                 }
 
-                                {productsInCart && (
+                                {getTotal() > 0 && (
                                     <div className="ibox-content">
 
                                         <Link to="/products"><button className="btn btn-white"><BsArrowLeftShort />Continuar comprando</button></Link>
@@ -100,17 +92,36 @@ function Cart() {
                         <div className="col-md-3">
                             <div className="ibox">
                                 <div className="ibox-title">
-                                    <h5>Cart Summary</h5>
+                                    <h5>Resumen de la compra</h5>
                                 </div>
                                 <div className="ibox-content">
+                                    {getTotal() > 0 && (
+                                        <>
+                                    <span>
+                                        Productos
+                                    </span>
+                                    
+                                        
+                                        <h3 className="font-bold">
+                                    {formatter.format(getTotal())}
+                                    </h3>
+                                    <span>
+                                        Envío
+                                    </span>
+                                    <h4 className="font-bold">
+                                        {formatter.format(40)}
+                                    </h4>
                                     <span>
                                         Total
                                     </span>
-                                    <h2 className="font-bold">
-                                        {formatter.format(getTotal())}
-                                    </h2>
+                                    <h3 className="font-bold" style={{color: "#34ad52"}}>
+                                        {formatter.format(getTotal() + 40)}
+                                    </h3>
+                                    </>
+                                    )}
+                                    
                                     <hr />
-                                    {productsInCart === true && (
+                                    {getTotal() > 0 && (
                                         <div className="m-t-sm">
                                             <div className="btn-group">
                                                 <button onClick={() => alert("Checkout")} className="btn btn-primary btn-sm">Checkout</button>
@@ -122,6 +133,18 @@ function Cart() {
 
                                 </div>
                             </div>
+
+                            <div className="ibox">
+                            <div className="ibox-title">
+                                <h5>Soporte</h5>
+                            </div>
+                            <div className="ibox-content text-center">
+                                <h3><i className="fa fa-phone"></i> +51 983 314 517</h3>
+                                <span className="small">
+                                Por favor, póngase en contacto con nosotros si tiene alguna pregunta. Estamos disponibles las 24 horas.
+                                </span>
+                            </div>
+                        </div>
 
 
                         </div>

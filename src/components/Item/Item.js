@@ -1,20 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {FaEye, FaShoppingCart } from "react-icons/fa";
+import {FaEye } from "react-icons/fa";
+import {formatter} from '../../utils/formatter'
 import  './Item.css'
 
 const Item = ( {product} ) => {
     
-
-    /* const onAdd = (count) => {
-
-        if (count > 1) {
-            alert(`Se agregaron ${count} articulos al carrito`);
-        } else {
-            alert(`Se agrego ${count} articulo al carrito`);
-        }
-
-    } */
 
 
     return (
@@ -30,8 +21,7 @@ const Item = ( {product} ) => {
                         <ul className="product-links">
                             {/*<li><Link to = "#"><FaHeart /></Link></li>
                             <li><Link to = "#"><FaRandom /></Link></li> */}
-                            <li><button ><Link to={`/item/${product.id}`}><FaEye style={{color: '#fff'}} /></Link></button></li>
-                            <li><button onClick={() => {alert("Producto agregado al carrito.")}} ><FaShoppingCart /></button></li>
+                            <li><Link to={`/item/${product.id}`}><button ><FaEye style={{color: '#fff'}} /></button></Link></li>
                             
                         </ul>
                         
@@ -39,7 +29,7 @@ const Item = ( {product} ) => {
                     <div className="product-content">
                         <label className="brand">{product.brand}</label>
                         <label className="title"><Link to={`/item/${product.id}`} >{product.name}</Link></label>
-                        <div className="price"><span>S/{product.initial_price}</span> S/{product.final_price}</div>
+                        <div className="price"><span>{formatter.format(product.initial_price)}</span> {formatter.format(product.final_price)}</div>
                     </div>
                 </div>
             </div>

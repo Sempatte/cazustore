@@ -1,0 +1,15 @@
+.shop-bag {
+    background-color: #fff;
+    color: #000;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center
+}
+
+.qty {
+    font-size: 12px
+}

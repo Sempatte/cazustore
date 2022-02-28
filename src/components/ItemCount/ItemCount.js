@@ -1,24 +1,27 @@
 import {useState} from 'react';
 import React from 'react';
 import './ItemCount.css'
+import { alert } from 'react-bootstrap-confirmation';
 
 function ItemCount({initial, stock, onAdd}) {
 
     const [count, setCount] = useState(initial)
 
-    const decrement = () => {
+    const decrement = async () => {
+
         if (count > 1){
-            setCount(count - 1)
+            return await setCount(count - 1)
         }
     }
 
-    const increment = () => {
+    const increment = async () => {
         
         if (count >= stock){
-            alert("No hay más stock")
-        } else {
-            setCount(count + 1)
+            return await alert("No hay más stock")
         }
+
+        return await setCount(count + 1)
+        
     }
 
     const restartCount = () => {
