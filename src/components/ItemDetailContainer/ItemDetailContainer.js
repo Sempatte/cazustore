@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
-import { getProduct } from '../../asyncmock'
+import { getProductDatabase } from '../../api'
 import { Loader } from '../Loader/Loader.js'
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -15,12 +15,15 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         if (productId !== undefined) {
-            getProduct(productId).then(product => {
-                if (product === undefined) {
+            getProductDatabase(productId).then((doc) => {
+                if (!doc.exists) {
+                    console.log("No existe el item");
                     navigate('/products');
                 } else {
+                    doc = { ...doc.data()}
+                    console.log(doc);
                     setLoader(false);
-                    setProduct(product);
+                    setProduct(doc);
                 }
 
             }).catch((err) => {

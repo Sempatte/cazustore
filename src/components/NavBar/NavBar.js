@@ -5,7 +5,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../../Logo.png'
 import {Link} from 'react-router-dom'
 import{ Navbar, Nav, NavDropdown, Container}  from "react-bootstrap";
-import { getBrands, getCategories } from '../../asyncmock';
+import { getBrands, getCategories } from '../../api';
 import CartContext from '../../context/CartContext';
 import './Navbar.css'
 
@@ -15,14 +15,14 @@ const NavBar = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
 
-        getCategories().then((categories) => {
-            setCategories(categories);
+        getCategories().then((querysnapshot) => {  
+            setCategories(querysnapshot.docs.map(doc => doc.data()));
         }).catch((err) =>{
             console.log(err);
         })
         
-        getBrands().then((brands) => {
-            setBrands(brands);
+        getBrands().then((querysnapshot) => {
+            setBrands(querysnapshot.docs.map(doc => doc.data()));
         }).catch((err) =>{
             console.log(err);
         })
@@ -41,8 +41,8 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <Link className="nav-link" to="/home">Inicio</Link>                        
                         <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                            {categories.map((category) => (
-                                <Link key={category.id} className="dropdown-item" to={`/category/${category.name}`}>{category.name}</Link>
+                            {categories.map((category, index) => (
+                                <Link key={index} className="dropdown-item" to={`/category/${category.name}`}>{category.name}</Link>
                             ))}
                             {/* <Link className="dropdown-item" to="/category/Celular">Celulares</Link>
                             <Link className="dropdown-item" to="/category/Computadora">Computadoras</Link>

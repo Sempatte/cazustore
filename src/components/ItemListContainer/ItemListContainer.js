@@ -2,9 +2,8 @@ import React from 'react'
 import { ItemList } from '../ItemList/ItemList'
 import { Loader } from '../Loader/Loader'
 import { useEffect, useState } from 'react'
-import { getProducts, getByCategory, getByBrand } from '../../asyncmock'
+import { getByCategory, getByBrand, getProductsDatabase } from '../../api'
 import { useParams } from 'react-router-dom'
-
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -16,9 +15,10 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         if (categoryName === undefined && brandName === undefined) {
-            getProducts().then((products) => {
+            getProductsDatabase().then((querysnapshot) => {
                 setLoader(false);
-                setProducts(products);
+                console.log("querysnapshot", querysnapshot.docs.map(doc => doc.data()))    
+                setProducts(querysnapshot.docs.map(doc => doc.data()));
             }).catch((err) =>{
                 console.log(err);
             })
@@ -40,6 +40,8 @@ const ItemListContainer = () => {
             }
    
         }
+        
+
         
     },[categoryName, brandName])
 
