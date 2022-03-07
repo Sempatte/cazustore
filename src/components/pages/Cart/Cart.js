@@ -75,7 +75,10 @@ function Cart() {
                                                 </div>
                                             </div>
                                         ))
-                                    ) : <h3>No hay productos</h3>
+                                    ) : (
+                                        <><h3>No hay productos</h3>
+                                        <Link to="/products"><button className="btn btn-white">Empieze agregando items haciendo click aquí!</button></Link></>
+                                    ) 
 
                                 }
 
