@@ -1,33 +1,29 @@
 import React from 'react';
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import useLocalStorage from '../customHooks/useLocalStorage';
 
 const Context = createContext();
 
 export const CartContextProvider = ({ children }) => {
-    let st = undefined;
-
-    localStorage.getItem('cart') === null ? st = [] : st = JSON.parse(localStorage.getItem('cart')) // Consulta si el carrito existe en el LocalStorage, caso contrario devuelve un []
-
-    const [cart, setCart] = useState(st)
+    
+    const [cart, setCart] = useLocalStorage('cart', []);
 
 
     const getLenghtCart = () => {
         return cart.length
     }
 
-    function amount(item) {
-        return item.total;
-    }
-
-    function sum(prev, next) {
-        return prev + next;
-    }
-
-
 
     const getTotal = () => {
-        let total = cart.map(amount).reduce(sum, 0);
-        return total
+        const countArray = cart.map(p => {
+            return p.total
+        });
+        
+        if(countArray.length){
+            return countArray.reduce((acc, total) => acc += total);
+        } else {
+            return 0;
+        }
     }
 
     const addItem = (productToAdd, quantity) => {
@@ -43,7 +39,6 @@ export const CartContextProvider = ({ children }) => {
         }
         let sCart = [...cart, newObj]
         setCart(sCart)
-        localStorage.setItem('cart', JSON.stringify(sCart)) //Agrega al LocalStorage el carrito
 
         return true // TRUE: No esta en el carrito
 
@@ -53,15 +48,12 @@ export const CartContextProvider = ({ children }) => {
         return cart.some(p => p.id === id && p.option.value === optionValue)
     }
 
-    const clearCart = () => { // Borra todo el carrito
-        localStorage.removeItem('cart');
+    const clearCart = () => {
         setCart([])
     }
 
     const removeItem = (id, oValue) => {
-        const newCart = cart.filter(p => p.id !== id || p.option.value !== oValue)
-        setCart(newCart)
-        localStorage.setItem('cart', JSON.stringify(newCart))
+        setCart(cart.filter(p => p.id !== id || p.option.value !== oValue))
     }
 
 
