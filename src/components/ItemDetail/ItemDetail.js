@@ -115,7 +115,7 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
                             <hr />
                             <div className="row">
                                 {counter ? (
-                                    <Link to="/cart"><button className="add-to-cart">IR AL CARRITO</button></Link>
+                                    <Link to="/cart"><button className="add-to-cart">Terminar mi compra</button></Link>
                                 ) :
                                     <>
                                         <dl className="param param-feature">
