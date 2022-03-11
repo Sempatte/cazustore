@@ -1,5 +1,7 @@
+import React from 'react';
 import {useState, createContext, useContext} from 'react'
-import {VscPass, VscError} from 'react-icons/vsc'
+import { Toast, ToastContainer } from "react-bootstrap";
+import Logo from '../../Logo.png'
 
 
 function Notification({severity, message}) {
@@ -7,34 +9,50 @@ function Notification({severity, message}) {
       return null;
   }  
 
-  return (
-    <div className={`notification ${severity}`}> {severity === 'error' ? <VscError/> : <VscPass/>} {message}</div>
+  return (  
+    message && (
+
+        <ToastContainer style={{zIndex:99999}} position="top-end" className="p-3">
+            <Toast>
+                <Toast.Header>
+                    <img
+                        src={Logo}
+                        width="10%"
+                        className="rounded me-2"
+                        alt=""
+                    />
+                    <strong className="me-auto">Alerta</strong>
+
+                </Toast.Header>
+                <Toast.Body style={severity === "success" ? {color: "green"} : {color: "red"} }>{message}</Toast.Body>
+            </Toast>
+        </ToastContainer>
+    )
   )
 }
 
-const NotificationContext = createContext();
+const NotificationContext = createContext()
 
-export const NotificationProvider = ({children}) => {
-    const [message, setMessage] = useState('');
-    const [severity, setSeverity] = useState('');
+export const NotificationServicesProvider = ({children}) => {
+    const [message, setMessage] = useState('')
+    const [severity, setSeverity] = useState('')
 
     const setNotification = (severity, message) => {
-        setMessage(message);
-        setSeverity(severity);
+        setMessage(message)
+        setSeverity(severity)
         setTimeout(() => {
             setMessage('')
-        }, 4000);
+        }, 4000)
     }
 
-    return(
-        <NotificationContext.Provider value={{setNotification}}>
-            <Notification severity={severity} message={message}/>
+    return (
+        <NotificationContext.Provider value={setNotification}>
+            <Notification message={message} severity={severity}/>
             {children}
         </NotificationContext.Provider>
     )
-
 }
 
-export const useNotificationContext = () => {
-   return useContext(NotificationContext);
+export const useNotificationServices = () => {
+    return useContext(NotificationContext)
 }

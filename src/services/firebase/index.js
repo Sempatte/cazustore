@@ -3,13 +3,12 @@ import 'firebase/compat/firestore';
 
 
 const app = firebase.initializeApp( {
-    apiKey: "AIzaSyBq0G0pxKQkSUCGX6QFVnmaqpekigBBpj4",
-    authDomain: "cazustore-10283.firebaseapp.com",
-    databaseURL: "http://cazustore.firebaseio.com",
-    projectId: "cazustore-10283",
-    storageBucket: "cazustore-10283.appspot.com",
-    messagingSenderId: "797912311453",
-    appId: "1:797912311453:web:ba3a92566a2252304e5674"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 });
 
 

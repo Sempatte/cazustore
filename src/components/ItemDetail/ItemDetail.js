@@ -3,8 +3,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import Select from '../Select/Select';
 import './ItemDetail.css'
 import { Link } from "react-router-dom";
-import Logo from '../../Logo.png'
-import { Toast, ToastContainer } from "react-bootstrap";
+import { useNotificationServices } from '../../services/Notification/Notification'
 import CartContext from '../../context/CartContext'
 
 
@@ -13,12 +12,9 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
 
     const { addItem } = useContext(CartContext)
     const [option, setOption] = useState(1);
-
-    const [toastBody, setToastBody] = useState();
-    const [show, setShow] = useState(false);
+    const setNotification = useNotificationServices()
 
 
-    const toggleShow = () => setShow(!show);
 
     const optionSelected = (value) => {
 
@@ -40,14 +36,15 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
             category,
             description,
         }
+        
 
         if (addItem(productToAdd, quantity)) { // Comprueba si el articulo se encuentra o no en el carrito.
             setCounter(quantity)
-            setToastBody(`Se agregaron ${quantity} articulos al carrito`)
-            toggleShow();
+            setNotification('success',`Se agrego ${name} al carrito`)
+
         } else {
-            setToastBody(`El producto ya se encuentra en tu carrito.`)
-            toggleShow();
+            setNotification('error',`El producto ya se encuentra en tu carrito.`)
+
         }
 
     }
@@ -55,23 +52,6 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
 
     return (
         <>
-            {toastBody && (
-                <ToastContainer position="bottom-end" className="p-3">
-                    <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide>
-                        <Toast.Header>
-                            <img
-                                src={Logo}
-                                width="10%"
-                                className="rounded me-2"
-                                alt=""
-                            />
-                            <strong className="me-auto">CazuStore</strong>
-
-                        </Toast.Header>
-                        <Toast.Body>{toastBody}</Toast.Body>
-                    </Toast>
-                </ToastContainer>
-            )}
 
             <div className="card">
 

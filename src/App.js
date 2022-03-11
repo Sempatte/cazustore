@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Login from './components/Login/Login'
 import Cart from './components/pages/Cart/Cart'
 import { CartContextProvider } from './context/CartContext';
+import { NotificationServicesProvider } from './services/Notification/Notification';
 
 
 function App() {
@@ -15,23 +16,25 @@ function App() {
 
     return (
         <div className="App">
-            <CartContextProvider>
-                <BrowserRouter>
-                    <Navbar />
-                    <Routes>
-                        <Route path="/" element={<ItemListContainer />} />
-                        <Route path="/home" element={<Home />} />
-                        <Route path="/products" element={<ItemListContainer />} />
-                        <Route path="/cart" element={<Cart />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/brand/:brandName" element={<ItemListContainer />} />
-                        <Route path="/category/:categoryName" element={<ItemListContainer />} />
-                        <Route path="/item/:productId" element={<ItemDetailContainer />} />
-                        <Route path="*" element={<ItemListContainer />} status={404} />
-                    </Routes>
+            <NotificationServicesProvider>  
+                <CartContextProvider>
+                    <BrowserRouter>
+                        <Navbar />
+                        <Routes>
+                            <Route path="/" element={<ItemListContainer />} />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/products" element={<ItemListContainer />} />
+                            <Route path="/cart" element={<Cart />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/brand/:brandName" element={<ItemListContainer />} />
+                            <Route path="/category/:categoryName" element={<ItemListContainer />} />
+                            <Route path="/item/:productId" element={<ItemDetailContainer />} />
+                            <Route path="*" element={<ItemListContainer />} status={404} />
+                        </Routes>
 
-                </BrowserRouter>
-            </CartContextProvider>
+                    </BrowserRouter>
+                </CartContextProvider>
+            </NotificationServicesProvider>  
         </div>
     );
 }
