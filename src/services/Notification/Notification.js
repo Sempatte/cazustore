@@ -13,7 +13,7 @@ function Notification({severity, message}) {
     message && (
 
         <ToastContainer style={{zIndex:99999}} position="top-end" className="p-3">
-            <Toast>
+            <Toast style={{background: 'white'}}>
                 <Toast.Header>
                     <img
                         src={Logo}
@@ -24,7 +24,7 @@ function Notification({severity, message}) {
                     <strong className="me-auto">Alerta</strong>
 
                 </Toast.Header>
-                <Toast.Body style={severity === "success" ? {color: "green"} : {color: "red"} }>{message}</Toast.Body>
+                <Toast.Body  style={severity === "success" ? {color: "green"} : {color: "red"} }>{message}</Toast.Body>
             </Toast>
         </ToastContainer>
     )
@@ -42,7 +42,7 @@ export const NotificationServicesProvider = ({children}) => {
         setSeverity(severity)
         setTimeout(() => {
             setMessage('')
-        }, 4000)
+        }, 5000)
     }
 
     return (
