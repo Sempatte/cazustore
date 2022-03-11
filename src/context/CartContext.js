@@ -8,9 +8,14 @@ export const CartContextProvider = ({ children }) => {
     
     const [cart, setCart] = useLocalStorage('cart', []);
 
-
     const getLenghtCart = () => {
-        return cart.length
+        const countArray = cart.map(p => p.quantity);
+        
+        if(countArray.length){
+            return countArray.reduce((acc, count) => acc += count);
+        } else {
+            return 0;
+        }
     }
 
 
