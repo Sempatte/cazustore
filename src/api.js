@@ -36,7 +36,7 @@ export const getByCategory = (category) => {
             P = querysnapshot.docs.map(doc => doc.data())
             const cate = P.filter(p => p.category === category);
             res(cate)
-            console.log("cat")
+
         }).catch((err) =>{
             console.log(err);
         })
@@ -52,7 +52,6 @@ export const getByBrand = (brand) => {
             P = querysnapshot.docs.map(doc => doc.data())
             const cate = P.filter(p => p.brand === brand);
             res(cate)
-            console.log("cat")
         }).catch((err) =>{
             console.log(err);
         })

@@ -17,7 +17,7 @@ const ItemListContainer = () => {
         if (categoryName === undefined && brandName === undefined) {
             getProductsDatabase().then((querysnapshot) => {
                 setLoader(false);
-                console.log("querysnapshot", querysnapshot.docs.map(doc => doc.data()))    
+
                 setProducts(querysnapshot.docs.map(doc => doc.data()));
             }).catch((err) =>{
                 console.log(err);

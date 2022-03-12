@@ -23,7 +23,6 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
 
 
     const onAdd = quantity => {
-        console.log(options)
         const productToAdd = {
             id,
             name,
@@ -93,19 +92,25 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
                             </dl>
 
                             <hr />
+
                             <div className="row">
-                                {counter ? (
-                                    <Link to="/cart"><button className="add-to-cart">Terminar mi compra</button></Link>
-                                ) :
-                                    <>
-                                        <dl className="param param-feature">
-                                            <Select options={options} onSelect={optionSelected} defaultOption={1} />
-                                        </dl>
-                                        <ItemCount initial={1} stock={stock} onAdd={onAdd} />
-                                    </>
-                                }
+                                {stock > 0 ? (
+                                    counter ? (
+                                        <Link to="/cart"><button className="add-to-cart">Terminar mi compra</button></Link>
+                                    ) :
+                                        <>
+                                            <dl className="param param-feature">
+                                                <Select options={options} onSelect={optionSelected} defaultOption={1} />
+                                            </dl>
+                                            <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+                                        </>
+                                    
+                                ) : <h3>Sin stock del producto</h3> }
+                                
+                                
 
                             </div>
+                            
                         </article>
                     </aside>
                 </div>
