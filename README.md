@@ -7,7 +7,7 @@
 - *Instagram: https://www.instagram.com/dlt.dev/*
 
 # *Información acerca de este proyecto:*
-Consiste en la implementacion de un e-Commerce con ReactJS, asi mismo, requeriendo de ReactIcons, ReactHooks, ReactRouter, entre otros. Hare uso de librerias como Bootstrap para el manejo de la interfaz web, para tener como resultado una experiencia satisfactoria por parte del usuario.
+Consiste en la implementación de un e-Commerce con ReactJS, asimismo, requeriendo de ReactIcons, ReactHooks, ReactRouter, EmailJS y entre otros. Haré uso de librerías como Bootstrap para el manejo de la interfaz web, para tener como resultado una experiencia satisfactoria por parte del usuario.
 
 ## *Desarrollado con:*
 
