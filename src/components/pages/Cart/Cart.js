@@ -44,6 +44,15 @@ function Cart() {
             && contact.address !== '' && contact.phone !== ''
             && contact.email !== '') {
 
+            if (contact.email.includes('@') === false) {
+                setProcessingOrder(false)
+                setNotification(
+                    "error",
+                    "Inserte un correo válido."
+                )
+                return 
+            }
+
             const orderid = require('order-id')('key');
             const OrderID = orderid.generate();
             setProcessingOrder(true)

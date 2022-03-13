@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {formatter} from "../../utils/formatter"
+import emailjs from "emailjs-com"
+
+
+
+function sendEmail(templateParams) {
+  
+    emailjs.send('gmail','template_rkv3yna', templateParams, 'F8tVfC3TYAOHmBDpL')
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+            console.log('FAILED...', error);
+        });
+}
+
+
 
 function OrderDetails({orderDetails}) {
+
     const items = orderDetails.items;
     const contactInfo = orderDetails.buyer;
+
+    useEffect(() => {
+        var templateParams = {
+            subject: 'Recibo de CazuStore',
+            name: 'Hola ' + contactInfo.name + '!',
+            email: 'Hemos recibido tu pedido, recibiras tu pedido en un plazo de 7 dias. ',
+            message: 'Tu numero de orden: ' + orderDetails.orderID
+        };
+        sendEmail(templateParams) // eslint-disable-next-line
+    },[])
+
+
     return (
 
             <div className="container py-5 h-100">
@@ -15,7 +43,7 @@ function OrderDetails({orderDetails}) {
                             </div>
                             <div className="card-body p-4">
                                 <div className="d-flex justify-content-between align-items-center mb-4">
-                                    <p className="lead fw-normal mb-0" style={{ color: '#a8729a' }}>Receipt</p>
+                                    <p className="lead fw-normal mb-0" style={{ color: '#a8729a' }}>Recibo de la orden</p>
                                     <p className="small text-muted mb-0">Recibo : {orderDetails.orderID}</p>
                                 </div>
                                 {items.map((item, index) => (

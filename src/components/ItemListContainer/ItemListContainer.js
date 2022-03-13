@@ -17,9 +17,9 @@ const ItemListContainer = () => {
         if (categoryName === undefined && brandName === undefined) {
             getProductsDatabase().then((querysnapshot) => {
                 setLoader(false);
-
                 setProducts(querysnapshot.docs.map(doc => doc.data()));
             }).catch((err) =>{
+                setLoader(false);
                 console.log(err);
             })
         } else {
@@ -48,7 +48,7 @@ const ItemListContainer = () => {
     return(
         <>
             
-            <div className="container pt-5"> {/* Container Productos */}
+            <div className="container pt-5">
             {loader ? <Loader /> : null }
                 <div className="row">
                         

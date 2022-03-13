@@ -10,19 +10,22 @@ const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
     const [loading, setLoader] = useState(true)
+    const [productExists, setProductsExists] = useState()
     const navigate = useNavigate();
     const { productId } = useParams()
 
     useEffect(() => {
         if (productId !== undefined) {
             getProductDatabase(productId).then((doc) => {
-                if (!doc.exists) {
-                    console.log("No existe el item");
-                    navigate('/products');
+                if (!doc.exists) {                 
+                    console.log("No existe el item");   
+                    setLoader(false);   
+                    setProductsExists(false)
                 } else {
-                    doc = { ...doc.data()}
+                    doc = { ...doc.data()}          
                     console.log(doc);
                     setLoader(false);
+                    setProductsExists(true)   
                     setProduct(doc);
                 }
 
@@ -37,11 +40,14 @@ const ItemDetailContainer = () => {
 
     return (
         <>
+            
             {loading ? <Loader /> : null}
             {loading ? null :
                 <div className="container pt-5">
-                    {/* <ItemDetail product={product} /> */}
-                    <ItemDetail {...product} />
+                    {productExists ? <ItemDetail {...product} /> : (
+                        <h2>No existe el producto.</h2>
+                    ) }
+                    
                 </div>
             }
 

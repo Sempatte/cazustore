@@ -13,7 +13,11 @@ function CartWidget({ children }) {
         <>
 
                 <div className="d-flex flex-row align-items-center justify-content-center">
-                    <Link to='/cart'><span className="shop-bag"><AiOutlineShoppingCart /></span></Link>
+                    <Link to='/cart'>
+                        <span className="shop-bag">
+                            <AiOutlineShoppingCart />
+                        </span>
+                    </Link>
                     <div className="d-flex flex-column ms-2">
                         <span className="qty">{children} producto(s)</span>
                         {children > 0 && <span className="fw-bold">{formatter.format(getTotal())}</span>}

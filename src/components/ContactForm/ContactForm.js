@@ -22,12 +22,12 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             comment
         }
         setContact(objContact)
-        /* setName('')
+        setName('')
         setSurnames('')
         setPhone('')
         setAddress('')
         setComment('')
-        setEmail('') */
+        setEmail('')
     }
 
     return (
@@ -132,8 +132,8 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                             </form>
                         </div>
                     </div>
-                </div> {/* /.8 */}
-            </div> {/* /.row*/}
+                </div>
+            </div>
         </div>
 
 

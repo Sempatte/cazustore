@@ -19,8 +19,7 @@ const Item = ( {product} ) => {
                         </Link>
                         {product.hot === true && <span className="product-sale-label" ><span role="img" style={{cursor: 'default'}} aria-label="fire">🔥</span></span>}
                         <ul className="product-links">
-                            {/*<li><Link to = "#"><FaHeart /></Link></li>
-                            <li><Link to = "#"><FaRandom /></Link></li> */}
+
                             <li><Link to={`/item/${product.id}`}><button ><FaEye style={{color: '#fff'}} /></button></Link></li>
                             
                         </ul>

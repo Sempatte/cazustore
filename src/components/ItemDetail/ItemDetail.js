@@ -72,7 +72,6 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
                             <label className="price-detail-wrap">
                                 <span className="price h3 text-warning">
                                     <div className="price"><span>S/{initial_price}</span> S/{final_price}</div>
-                                    {/* <span className="currency">S/.</span><span className="num">{final_price}</span> */}
                                 </span>
                             </label>
                             <dl className="item-property">
@@ -105,7 +104,8 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
                                             <ItemCount initial={1} stock={stock} onAdd={onAdd} />
                                         </>
                                     
-                                ) : <h3>Sin stock del producto</h3> }
+                                ) : <h3>Sin stock del producto</h3> 
+                                }
                                 
                                 
 

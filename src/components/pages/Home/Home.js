@@ -60,8 +60,8 @@ const home = () => {
                 <div className="container px-4">
                     <div className="row gx-4 justify-content-center">
                         <div className="col-lg-8">
-                            <h2>Garantia</h2>
-                            <span className="lead">Todos nuestros productos tienen garatia por 1 año, aplicando nuestra politica de garantia.</span>
+                            <h2>Garantía</h2>
+                            <span className="lead">Para hacer válida la garantía es necesario presentar el ticket o nota de compra, asimismo, llevar el producto intacto al establecimiento donde fue adquirido o directamente a las oficinas de la fábrica (sin tratar de repararlo uno mismo y sin abrir los sellos de garantía). De esta manera, su producto podrá ser reemplazado o reembolsado según su preferencia.</span>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ const home = () => {
                     <div className="row gx-4 justify-content-center">
                         <div className="col-lg-8">
                             <h2>Seguridad</h2>
-                            <span className="lead">Todos tus pagos a travez de esta web estan encriptados con SSL y son totalmente seguros.</span>
+                            <span className="lead">Todos tus pagos a través de esta web están encriptados con SSL y son totalmente seguros.</span>
                         </div>
                     </div>
                 </div>

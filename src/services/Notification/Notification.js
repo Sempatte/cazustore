@@ -4,7 +4,7 @@ import { Toast, ToastContainer } from "react-bootstrap";
 import Logo from '../../Logo.png'
 
 
-function Notification({severity, message}) {
+function Notification({severity, message, Show, setShow}) {
   if(message === ''){
       return null;
   }  
@@ -13,7 +13,7 @@ function Notification({severity, message}) {
     message && (
 
         <ToastContainer style={{zIndex:99999}} position="top-end" className="p-3">
-            <Toast style={{background: 'white'}}>
+            <Toast onClose={() => setShow(false)} show={Show} style={{background: 'white'}}>
                 <Toast.Header>
                     <img
                         src={Logo}
@@ -36,18 +36,22 @@ const NotificationContext = createContext()
 export const NotificationServicesProvider = ({children}) => {
     const [message, setMessage] = useState('')
     const [severity, setSeverity] = useState('')
+    const [show, setShow] = useState(false);
 
     const setNotification = (severity, message) => {
         setMessage(message)
         setSeverity(severity)
+        setShow(true)
         setTimeout(() => {
-            setMessage('')
-        }, 5000)
+            setShow(false)
+        }, 3000)
+        
+        
     }
 
     return (
         <NotificationContext.Provider value={setNotification}>
-            <Notification message={message} severity={severity}/>
+            <Notification message={message} setShow={setShow} Show={show} severity={severity}/>
             {children}
         </NotificationContext.Provider>
     )

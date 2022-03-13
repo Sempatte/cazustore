@@ -1,10 +1,11 @@
 import {useState} from 'react';
 import React from 'react';
 import './ItemCount.css'
-import { alert } from 'react-bootstrap-confirmation';
+import { useNotificationServices } from '../../services/Notification/Notification'
 
 function ItemCount({initial, stock, onAdd}) {
 
+    const setNotification = useNotificationServices()
     const [count, setCount] = useState(initial)
 
     const decrement = async () => {
@@ -17,7 +18,10 @@ function ItemCount({initial, stock, onAdd}) {
     const increment = async () => {
         
         if (count >= stock){
-            return await alert("No hay más stock")
+            return await setNotification(
+                "error",
+                "No hay más stock"
+            )
         }
 
         return await setCount(count + 1)

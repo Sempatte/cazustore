@@ -40,12 +40,12 @@ export const CartContextProvider = ({ children }) => {
         }
 
         if (isInCart(productToAdd.id, productToAdd.option.value)) {
-            return false // FALSE: Esta en el carrito
+            return false 
         }
         let sCart = [...cart, newObj]
         setCart(sCart)
 
-        return true // TRUE: No esta en el carrito
+        return true
 
     }
 
