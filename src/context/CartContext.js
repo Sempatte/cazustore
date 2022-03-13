@@ -57,7 +57,11 @@ export const CartContextProvider = ({ children }) => {
         setCart([])
     }
 
-    const removeItem = (id, oValue) => {
+    const removeItem = (id) => {
+        setCart(cart.filter(p => p.id !== id))
+    }
+
+    const removeItemFromCart = (id, oValue) => {
         setCart(cart.filter(p => p.id !== id || p.option.value !== oValue))
     }
 
@@ -69,6 +73,7 @@ export const CartContextProvider = ({ children }) => {
             getLenghtCart,
             clearCart,
             removeItem,
+            removeItemFromCart,
             getTotal,
         }}>
             {children}

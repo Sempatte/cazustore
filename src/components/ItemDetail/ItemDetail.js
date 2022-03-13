@@ -37,7 +37,7 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
         }
         
 
-        if (addItem(productToAdd, quantity)) { // Comprueba si el articulo se encuentra o no en el carrito.
+        if (addItem(productToAdd, quantity)) {
             setCounter(quantity)
             setNotification('success',`Se agrego ${name} al carrito`)
 

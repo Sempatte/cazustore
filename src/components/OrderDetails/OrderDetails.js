@@ -23,9 +23,10 @@ function OrderDetails({orderDetails}) {
 
     useEffect(() => {
         var templateParams = {
+            to: contactInfo.email,
             subject: 'Recibo de CazuStore',
             name: 'Hola ' + contactInfo.name + '!',
-            email: 'Hemos recibido tu pedido, recibiras tu pedido en un plazo de 7 dias. ',
+            email: 'Hemos recibido tu pedido, recibirás tu pedido en un plazo de 7 dias. ',
             message: 'Tu numero de orden: ' + orderDetails.orderID
         };
         sendEmail(templateParams) // eslint-disable-next-line

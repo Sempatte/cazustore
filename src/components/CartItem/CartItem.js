@@ -5,7 +5,7 @@ import {  BsFillTrashFill } from "react-icons/bs";
 import CartContext from '../../context/CartContext';
 
 function CartItem({image1, id, name, description, option, final_price, initial_price, quantity, total}) {
-    const { removeItem } = useContext(CartContext)
+    const { removeItemFromCart } = useContext(CartContext)
     return (
         <div className="ibox-content">
             <div className="table-responsive">
@@ -28,7 +28,7 @@ function CartItem({image1, id, name, description, option, final_price, initial_p
                                 </label>
 
                                 <div className="m-t-sm">
-                                    <button onClick={() => removeItem(id, option.value)} type="button" className="btn btn-danger btn-sm"><BsFillTrashFill /></button>
+                                    <button onClick={() => removeItemFromCart(id, option.value)} type="button" className="btn btn-danger btn-sm"><BsFillTrashFill /></button>
                                 </div>
                             </td>
                             <td>
