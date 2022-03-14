@@ -28,7 +28,7 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 - [React Boostrap](https://react-bootstrap.github.io/): Se implementó esta librería para el manejo de la interfaz de usuario de la página, tales como el NavBar, las tarjetas de los ítems, el carrito, etc.
 - [EmailJS](https://www.emailjs.com/): Esta librería se encarga de enviar detalles de la orden luego de que el usuario haya culminado con la compra. Se enviará toda la información al correo proporcionado por el cliente.
 - [Firebase](https://firebase.google.com/): Se hizo uso de esta librería para el manejo de la Base de Datos. Cabe resaltar su indispensable uso ya que sin ella no tendríamos donde alojar información sobre los productos y órdenes.
-- [Order ID](https://www.npmjs.com/package/order-id): Dicha librería se encarga de generar los números de orden de manera automática, lo cual posteriormente servirá para hacerle seguimiento a la orden. Además, este identificador irá a la Base de Datos en su respectivo orden.
+- [Order ID](https://www.npmjs.com/package/order-id): Dicha librería se encarga de generar los números de orden de manera automática, lo cual posteriormente servirá para hacerle seguimiento a la orden. Además, este identificador irá a la Base de Datos con su respectiva orden.
 - [React Icons](https://react-icons.github.io/react-icons/): Se implementó esta librería para el renderizado de íconos dentro de la página.
 
 ## Requisitos Pro-Coders
