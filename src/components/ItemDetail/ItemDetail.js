@@ -93,6 +93,7 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
                             <hr />
 
                             <div className="row">
+<<<<<<< HEAD
                                 {stock > 0 ? (
                                     counter ? (
                                         <Link to="/cart"><button className="add-to-cart">Terminar mi compra</button></Link>
@@ -105,6 +106,17 @@ const ItemDetail = ({ id, name, category, options, brand, description, color, in
                                         </>
                                     
                                 ) : <h3>Sin stock del producto</h3> 
+=======
+                                {counter ? (
+                                    <Link to="/cart"><button className="add-to-cart">Terminar mi compra</button></Link>
+                                ) :
+                                    <>
+                                        <dl className="param param-feature">
+                                            <Select options={options} onSelect={optionSelected} defaultOption={1} />
+                                        </dl>
+                                        <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+                                    </>
+>>>>>>> 5e9d2bb9eea4b1199b3f40dc3a802c1f5912c7a2
                                 }
                                 
                                 

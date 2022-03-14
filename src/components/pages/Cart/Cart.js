@@ -174,6 +174,7 @@ function Cart() {
                                 </div>
                                 {
                                     getTotal() > 0 ? (
+<<<<<<< HEAD
                                         cart.map((item, index) => <CartItem key={index} {...item}></CartItem>)
                                     ) : (
                                         <>
@@ -183,6 +184,55 @@ function Cart() {
                                             </Link>
                                         </>
                                     )
+=======
+                                        cart.map((item, index) => (
+                                            <div key={index} className="ibox-content">
+                                                <div className="table-responsive">
+                                                    <table  className="table shoping-cart-table">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width={120}>
+                                                                    <img alt={item.image1} src={item.image1} width="100%" height="100%" />
+
+                                                                </td>
+                                                                <td className="desc">
+                                                                    <h4>
+                                                                        <Link target="_blank" style={{ textDecoration: 'none' }} to={`/item/${item.id}`} className="text-navy">
+                                                                            {item.name} 
+                                                                        </Link>
+                                                                    </h4>
+                                                                    <label > {item.option.text}</label>
+                                                                    <label className="small">
+                                                                        {item.description}
+                                                                    </label>
+
+                                                                    <div className="m-t-sm">
+                                                                        <button onClick={() => removeItem(item.id, item.option.value)} type="button" className="btn btn-danger btn-sm"><BsFillTrashFill /></button>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    {formatter.format(item.final_price)}
+                                                                    &nbsp;<s className="small text-muted"> {formatter.format(item.initial_price)}</s>
+                                                                </td>
+                                                                <td width={65}>
+                                                                    <input type="text" className="form-control text-center" disabled value={item.quantity} />
+                                                                </td>
+                                                                <td>
+                                                                    <h5>
+                                                                        {formatter.format(item.total)}
+                                                                    </h5>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <><h3>No hay productos</h3>
+                                        <Link to="/products"><button className="btn btn-white">Empieze agregando items haciendo click aquí!</button></Link></>
+                                    ) 
+>>>>>>> 5e9d2bb9eea4b1199b3f40dc3a802c1f5912c7a2
 
                                 }
 
