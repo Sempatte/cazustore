@@ -8,7 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/pages/Cart/Cart'
 import { CartContextProvider } from './context/CartContext';
 import { NotificationServicesProvider } from './services/Notification/Notification';
-
+import {ViewOrder} from './components/pages/ViewOrder/ViewOrder'
 
 function App() {
 
@@ -27,6 +27,7 @@ function App() {
                             <Route path="/brand/:brandName" element={<ItemListContainer />} />
                             <Route path="/category/:categoryName" element={<ItemListContainer />} />
                             <Route path="/item/:productId" element={<ItemDetailContainer />} />
+                            <Route path="/order/:orderID" element={<ViewOrder />} />
                             <Route path="*" element={<ItemListContainer />} status={404} />
                         </Routes>
 

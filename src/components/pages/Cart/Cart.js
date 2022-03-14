@@ -13,8 +13,14 @@ import { getFirestore } from '../../../services/firebase'
 import { useNotificationServices } from '../../../services/Notification/Notification'
 import OrderDetails from "../../OrderDetails/OrderDetails";
 import { Loader } from '../../Loader/Loader'
+import emailjs from "emailjs-com"
+
+
+
 
 function Cart() {
+
+    
     const [processingOrder, setProcessingOrder] = useState(false)
     const [orderFinished, setOrderFinished] = useState(false);
     const [orderDetails, setOrderDetail] = useState()
@@ -32,6 +38,22 @@ function Cart() {
     const contactFormRef = useRef()
     const firestoreDb = getFirestore()
 
+    const sendEmail = (templateParams) => {
+  
+        emailjs.send('gmail','template_rkv3yna', templateParams, process.env.REACT_APP_EMAILJS_UserID)
+            .then(function() {
+                setNotification(
+                    "success",
+                    "Los detalles han sido enviados a su correo."
+                )
+            }, function() {
+                setNotification(
+                    "error",
+                    "Error al enviar correo."
+                )
+            });
+    }
+
     const confirmOrder = () => {
 
         if (contact.name !== '' && contact.surnames !== ''
@@ -48,15 +70,17 @@ function Cart() {
             }
 
             setProcessingOrder(true)
-            const orderid = require('order-id')('key');
-            const OrderID = orderid.generate();
+
+            const OrderNum = require('order-id')('key');
+            const orderNum = OrderNum.generate();
 
             const objOrder = {
                 buyer: contact,
                 items: cart,
                 total: getTotal() + 40, //Delivery S/40.00 PEN
                 date: Timestamp.fromDate(new Date()),
-                orderID: OrderID
+                orderNum: orderNum,
+                orderid: ''
             }
 
             const batch = writeBatch(firestoreDb)
@@ -79,6 +103,20 @@ function Cart() {
                             batch.commit()        
                             clearCart()  
                             setNotification('success', `La orden se generó exitosamente, su numero de orden es: ${id}`)
+                            setTimeout(() => {
+                                var templateParams = {
+                                    to: contact.email,
+                                    name: contact.name,
+                                    orderNum: orderNum,
+                                    fullnames: contact.name + ' ' + contact.surnames,
+                                    date: objOrder.date.toDate(),
+                                    address: contact.address,
+                                    phone: contact.phone,
+                                    total: formatter.format(objOrder.total),
+                                    orderid: id                                  
+                                };
+                                sendEmail(templateParams)
+                            }, 2000)
                             setProcessingOrder(false)                  
                             setOrderDetail(objOrder)
                             setOrderFinished(true)             

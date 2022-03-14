@@ -4,6 +4,7 @@ const db = getFirestore();
 const itemCollection = db.collection("items");
 const categoriesCollection = db.collection("categories");
 const brandsCollection = db.collection("brands");
+const ordersCollection = db.collection("orders");
 
 export const getProductsDatabase = () => {
     
@@ -24,6 +25,13 @@ export const getProductDatabase = (id) => {
     return new Promise((resolve) => {
         const item = itemCollection.doc(id);
         resolve(item.get())
+    });
+}
+
+export const getOrderDetails = (orderID) => {
+    return new Promise((resolve) => {
+        const order = ordersCollection.doc(orderID);
+        resolve(order.get())
     });
 }
 

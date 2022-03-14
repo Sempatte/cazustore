@@ -4,26 +4,25 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
 import { getProductDatabase } from '../../api'
 import { Loader } from '../Loader/Loader.js'
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
     const [loading, setLoader] = useState(true)
     const [productExists, setProductsExists] = useState()
-    const navigate = useNavigate();
     const { productId } = useParams()
+
 
     useEffect(() => {
         if (productId !== undefined) {
             getProductDatabase(productId).then((doc) => {
                 if (!doc.exists) {                 
-                    console.log("No existe el item");   
                     setLoader(false);   
                     setProductsExists(false)
                 } else {
                     doc = { ...doc.data()}          
-                    console.log(doc);
                     setLoader(false);
                     setProductsExists(true)   
                     setProduct(doc);
@@ -32,11 +31,9 @@ const ItemDetailContainer = () => {
             }).catch((err) => {
                 console.log(err)
             });
-        } else {
-            navigate('/products');
-        }
-
-    }, [productId, navigate])
+        } 
+        // eslint-disable-next-line
+    }, [productId])
 
     return (
         <>

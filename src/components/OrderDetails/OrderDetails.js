@@ -1,37 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {formatter} from "../../utils/formatter"
-import emailjs from "emailjs-com"
-
-
-
-function sendEmail(templateParams) {
-  
-    emailjs.send('gmail','template_rkv3yna', templateParams, 'F8tVfC3TYAOHmBDpL')
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-        }, function(error) {
-            console.log('FAILED...', error);
-        });
-}
-
-
 
 function OrderDetails({orderDetails}) {
 
     const items = orderDetails.items;
     const contactInfo = orderDetails.buyer;
-
-    useEffect(() => {
-        var templateParams = {
-            to: contactInfo.email,
-            subject: 'Recibo de CazuStore',
-            name: 'Hola ' + contactInfo.name + '!',
-            email: 'Hemos recibido tu pedido, recibirás tu pedido en un plazo de 7 dias. ',
-            message: 'Tu numero de orden: ' + orderDetails.orderID
-        };
-        sendEmail(templateParams) // eslint-disable-next-line
-    },[])
-
+    console.log(orderDetails);
 
     return (
 
@@ -45,7 +19,7 @@ function OrderDetails({orderDetails}) {
                             <div className="card-body p-4">
                                 <div className="d-flex justify-content-between align-items-center mb-4">
                                     <p className="lead fw-normal mb-0" style={{ color: '#a8729a' }}>Recibo de la orden</p>
-                                    <p className="small text-muted mb-0">Recibo : {orderDetails.orderID}</p>
+                                    <p className="small text-muted mb-0">Recibo: {orderDetails.orderNum}</p>
                                 </div>
                                 {items.map((item, index) => (
                                     <div key={index}  className="card shadow-0 border mb-4">
@@ -55,13 +29,13 @@ function OrderDetails({orderDetails}) {
                                                     <img src={item.image1} className="img-fluid" alt="Phone" />
                                                 </div>
                                                 <div className="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                                    <p className="text-muted mb-0">{item.name}</p>
+                                                    <p className="text-muted mb-0">{item.name.substring(0,53)} ...</p>
                                                 </div>
                                                 <div className="col-md-2 text-center d-flex justify-content-center align-items-center">
                                                     <p className="text-muted mb-0 small">{item.option.text}</p>
                                                 </div>
                                                 <div className="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                                    <p className="text-muted mb-0 small">Nota: ----</p>
+                                                    <p className="text-muted mb-0 small">Marca: {item.brand}</p>
                                                 </div>
                                                 <div className="col-md-2 text-center d-flex justify-content-center align-items-center">
                                                     <p className="text-muted mb-0 small">Cantidad: {item.quantity}</p>
@@ -95,11 +69,11 @@ function OrderDetails({orderDetails}) {
                                     <p className="text-muted mb-0"><span className="fw-bold me-4">Total</span> {formatter.format(orderDetails.total - 40)}</p>
                                 </div>
                                 <div className="d-flex justify-content-between pt-2">
-                                    <p className="text-muted mb-0">Numero de recibo: 788152</p>
+                                    <p className="text-muted mb-0">Numero de tu orden: {orderDetails.orderNum}</p>
                                     <p className="text-muted mb-0"><span className="fw-bold me-4">Descuento</span> {formatter.format(0)}</p>
                                 </div>
                                 <div className="d-flex justify-content-between mb-5">
-                                    <p className="text-muted mb-0">Voucher : {orderDetails.orderID}</p>
+                                    <p className="text-muted mb-0">ID de tu orden: ##############</p>
                                     <p className="text-muted mb-0"><span className="fw-bold me-4">Delivery </span> {formatter.format(40)}</p>
                                 </div>
                                 
