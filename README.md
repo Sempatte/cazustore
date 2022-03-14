@@ -15,13 +15,13 @@ npm i
 Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo uso de librerías tales como ReactIcons, ReactHooks, ReactRouter, entre otros. En este proyecto, se pondrá en práctica todo lo aprendido durante todas las sesiones de CoderHouse.
 
 ## Rutas
-- **Ruta Main ("/"):** Encargada de renderizar y proveer al usuario la lista de todos los productos existentes en la base de datos
-- **Ruta Home ("/home"):** Encargada de renderizar y mostrar informacion básica sobre la página al cliente o al espectador.
+- **Ruta Main ("/"):** Encargada de renderizar y proveer al usuario la lista de todos los productos existentes en la base de datos.
+- **Ruta Home ("/home"):** Encargada de renderizar y mostrar información básica sobre la página al cliente o al espectador.
 - **Ruta Products ("/products"):** Al igual que la ruta Main, esta se encarga de mostrar todos los productos en forma de tarjetas.
-- **Ruta Cart ("/cart"):** Encargada de mostrar el carrito con los productos añadidos por el usuario, este renderiza un aviso de `No hay productos` en caso el usuario no haya añadido ningun producto.
-- **Ruta Brand ("/brand/:brandName"):** Encargada de filtrar por Marcas los productos, está será manejada desde el NavBar de la interfaz.
-- **Ruta Brand ("/category/:categoryName"):** Encargada de filtrar por categorías los productos, de igual modo, stá será manejada desde el NavBar.
-- **Ruta Item ("/item/:productId"):** Encargada de mostrar el boton para agregar al carrito y los detalles disponibles del producto elegido, tales como el  nombre, descripción, stock, precio, color o modelos, etc. Una vez el usuario haya agregado el producto al carrito, se le mostrará un botón el cual al hacer click lo redireccionara al carrito.
+- **Ruta Cart ("/cart"):** Encargada de mostrar el carrito con los productos añadidos por el usuario, este renderiza un aviso de `No hay productos` en caso el usuario no haya añadido ningún producto.
+- **Ruta Brand ("/brand/:brandName"):** Encargada de filtrar por Marcas los productos, esta será manejada desde el NavBar de la interfaz.
+- **Ruta Category ("/category/:categoryName"):** Encargada de filtrar por categorías los productos, de igual modo, stá será manejada desde el NavBar.
+- **Ruta Item ("/item/:productId"):** Encargada de renderizar el botón para agregar al carrito, junto con los detalles disponibles del producto elegido, tales como el  nombre, descripción, stock, precio, color o modelos, etc. Una vez el usuario haya agregado el producto al carrito, se le mostrará un botón el cual al hacer click lo redireccionará al carrito.
 - **Ruta Order ("/order/:orderID"):** Encargada de mostrar los detalles de el identificador de la orden especificado en los parametros. Se mostrarán detalles como fecha de compra, productos, estado, precio total y entre otros.
 
 ## Librerias

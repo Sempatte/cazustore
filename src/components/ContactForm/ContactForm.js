@@ -70,7 +70,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <div className="form-group"> <label htmlFor="form_email">Direccion *</label> 
+                                            <div className="form-group"> <label htmlFor="form_email">Dirección *</label> 
                                                 <input  
                                                     type="text"  
                                                     value={address} 
@@ -82,7 +82,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                             </div>
                                         </div>
                                         <div className="col-md-6">
-                                            <div className="form-group"> <label htmlFor="form_email">Telefono *</label> 
+                                            <div className="form-group"> <label htmlFor="form_email">Teléfono *</label> 
                                                 <input 
                                                     type="text"
                                                     value={phone} 
@@ -96,7 +96,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <div className="form-group"> <label htmlFor="form_email">Email *</label> 
+                                            <div className="form-group"> <label htmlFor="form_email">Correo *</label> 
                                                 <input 
                                                     type="email"
                                                     value={email} 
@@ -107,6 +107,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                                 /> 
                                             </div>
                                         </div>
+  
                                         
                                     </div>
                                     <div className="row py-5">
