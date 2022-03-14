@@ -75,7 +75,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                                     type="text"  
                                                     value={address} 
                                                     className="form-control" 
-                                                    placeholder="Ingresa tu direccion de compra *" 
+                                                    placeholder="Ingresa tu dirección de compra *" 
                                                     required="required"
                                                     onChange={({ target }) => setAddress(target.value)}
                                                 /> 
@@ -117,7 +117,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                                 <textarea
                                                     value={comment}           
                                                     className="form-control"
-                                                    placeholder="Por favor, si tienes algun comentario adicional respecto a tu compra, detallalo aqui."
+                                                    placeholder="Por favor, si tienes algún comentario adicional respecto a tu compra, detállalo aqui."
                                                     rows={2}
                                                     onChange={({ target }) => setComment(target.value)}
                                                 /> 
