@@ -26,15 +26,15 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 
 ## Librerias
 - [React Boostrap](https://react-bootstrap.github.io/): Se implementó esta librería para el manejo de la interfaz de usuario de la página, tales como el NavBar, las tarjetas de los ítems, el carrito, etc.
-- [EmailJS](https://www.emailjs.com/): Esta librería se encarga de enviar detalles de la orden luego de que el usuario haya culminado con la compra. Se le enviará toda la información al correo antes proporcionado del cliente.
-- [Firebase](https://firebase.google.com/): Se hizo uso de esta librería para el manejo de la Base de Datos. Esta librería es de vital uso, puesto que sin ella, no tendríamos donde alojar información sobre los productos y las órdenes.
-- [Order ID](https://www.npmjs.com/package/order-id): Esta libreria se encarga de generar los numeros de orden automáticamente, que posteriormente servirá para hacerle un seguimiento a la orden. Este identificador irá a la Base de Datos en su respectiva orden.
+- [EmailJS](https://www.emailjs.com/): Esta librería se encarga de enviar detalles de la orden luego de que el usuario haya culminado con la compra. Se enviará toda la información al correo proporcionado por el cliente.
+- [Firebase](https://firebase.google.com/): Se hizo uso de esta librería para el manejo de la Base de Datos. Cabe resaltar su indispensable uso ya que sin ella no tendríamos donde alojar información sobre los productos y órdenes.
+- [Order ID](https://www.npmjs.com/package/order-id): Dicha librería se encarga de generar los números de orden de manera automática, lo cual posteriormente servirá para hacerle seguimiento a la orden. Además, este identificador irá a la Base de Datos en su respectivo orden.
 - [React Icons](https://react-icons.github.io/react-icons/): Se implementó esta librería para el renderizado de íconos dentro de la página.
 
 ## Requisitos Pro-Coders
-- **Custom Item:** Se agregó la posibilidad de que cada producto tenga 1 o más opciones por elegir, como por ejemplo, el modelo, el color o la capacidad.
+- **Custom Item:** Se agregó la posibilidad de que cada producto tenga una o más opciones por elegir, como por ejemplo, el modelo, el color o la capacidad.
 - **Cart Persistente:** Se elaboró un CustomHook (customHooks/useLocalStorage.js) para conseguir que el Carrito de Compras sea persistente, haciendo vital uso de LocalStorage.
-- **Mis ordenes:** El cliente luego de haber realizado una compra, puede volver a ver el detalle de su orden con el ID que se le proporciono. Asimismo, se le envía un link al correo del cliente donde lo redireccionara hacia un apartado el cual contiene los detalles respectivos de su orden, ocultando sus datos personales. Se reutilizara el componente **<OrderDetails/>**
+- **Mis ordenes:** El cliente luego de haber realizado una compra, puede volver a ver el detalle de su orden con el ID que se le proporciono. Asimismo, se le envía un link al correo del cliente donde lo redireccionará hacia un apartado el cual contiene los detalles respectivos de su orden, ocultando sus datos personales. Se reutilizará el componente **OrderDetails**
 
 ## Desarrollado con:
 
