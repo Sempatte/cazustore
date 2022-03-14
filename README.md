@@ -18,7 +18,7 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 - Ruta Main ("/"): Encargada de renderizar y proveer al usuario la lista de todos los productos existentes en la base de datos
 - Ruta Home ("/home"): Encargada de renderizar y mostrar informacion básica sobre la página al cliente o al espectador.
 - Ruta Products ("/products"): Al igual que la ruta Main, esta se encarga de mostrar todos los productos en forma de tarjetas.
-- Ruta Cart ("/cart"): Encargada de mostrar el carrito con los productos añadidos por el usuario, este renderiza un aviso de `No hay productos` en caso el usuario no haya añadido ningun producto.
+- Ruta Cart ("/cart"): Encargada de mostrar el carrito con los productos añadidos por el usuario, este renderiza un aviso de `No hay productos` en caso de que el usuario no haya añadido ningun producto.
 - Ruta Brand ("/brand/:brandName"): Encargada de filtrar por Marcas los productos, está será manejada desde el NavBar de la interfaz.
 - Ruta Brand ("/category/:categoryName"): Encargada de filtrar por categorías los productos, de igual modo, stá será manejada desde el NavBar.
 - Ruta Item ("/item/:productId"): Encargada de mostrar el boton para agregar al carrito y los detalles disponibles del producto elegido, tales como el  nombre, descripción, stock, precio, color o modelos, etc. Una vez el usuario haya agregado el producto al carrito, se le mostrará un botón el cual al hacer click lo redireccionara al carrito.
