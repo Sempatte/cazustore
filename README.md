@@ -34,7 +34,7 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 ## Requisitos Pro-Coders
 - **Custom Item:** Se agregó la posibilidad de que cada producto tenga una o más opciones por elegir, como por ejemplo, el modelo, el color o la capacidad.
 - **Cart Persistente:** Se elaboró un CustomHook (customHooks/useLocalStorage.js) para conseguir que el Carrito de Compras sea persistente, haciendo vital uso de LocalStorage.
-- **Mis ordenes:** El cliente luego de haber realizado una compra, puede volver a ver el detalle de su orden con el ID que se le proporciono. Asimismo, se le envía un link al correo del cliente donde lo redireccionará hacia un apartado el cual contiene los detalles respectivos de su orden, ocultando sus datos personales. Se reutilizará el componente **OrderDetails**
+- **Mis órdenes:** : El cliente luego de haber realizado una compra puede volver a ver el detalle de su orden con el ID que se le proporcionó. Asimismo, se le enviará un link al correo del cliente, el cual lo redireccionará hacia un apartado, el cual contiene los detalles respectivos de su orden, ocultando sus datos personales. Se reutilizará el componente **OrderDetails**.
 
 ## Desarrollado con:
 
