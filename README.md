@@ -22,13 +22,13 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 - **Ruta Brand ("/brand/:brandName"):** Encargada de filtrar por Marcas los productos, esta será manejada desde el NavBar de la interfaz.
 - **Ruta Category ("/category/:categoryName"):** Encargada de filtrar por categorías los productos, de igual modo, stá será manejada desde el NavBar.
 - **Ruta Item ("/item/:productId"):** Encargada de renderizar el botón para agregar al carrito, junto con los detalles disponibles del producto elegido, tales como el  nombre, descripción, stock, precio, color o modelos, etc. Una vez el usuario haya agregado el producto al carrito, se le mostrará un botón el cual al hacer click lo redireccionará al carrito.
-- **Ruta Order ("/order/:orderID"):** Encargada de mostrar los detalles de el identificador de la orden especificado en los parametros. Se mostrarán detalles como fecha de compra, productos, estado, precio total y entre otros.
+- **Ruta Order ("/order/:orderID"):** Encargada de mostrar el botón “Agregar al carrito” y, los detalles disponibles del producto elegido tales como: nombre, descripción, stock, precio, color/modelos, etc. Una vez el usuario haya agregado el producto al carrito, se le mostrará un botón en el cual pueda hacer click y seguidamente lo redireccione al carrito.
 
 ## Librerias
-- [React Boostrap](https://react-bootstrap.github.io/): Se implementó esta librería para el manejo de la interfaz de usuario de la página, tales como el NavBar, las tarjetas de los items, el carrito, etc.
-- [EmailJS](https://www.emailjs.com/): Está librería se encarga de enviar detalles de la orden luego de que el usuario haya culminado con la compra. Se le enviará toda la información al correo antes proporcionado del cliente.
-- [Firebase](https://firebase.google.com/): Se hizo uso de esta librería para el manejo de la Base de Datos. Esta libreria es de vital uso, puesto que sin ella, no tendríamos donde alojar información sobre los productos y las ordenes.
-- [Order ID](https://www.npmjs.com/package/order-id): Está libreria se encarga de generar los numeros de orden automaticamente, que posteriormente servirá para hacerle un seguimiento a la orden. Este identificador irá a la Base de Datos en su respectiva orden.
+- [React Boostrap](https://react-bootstrap.github.io/): Se implementó esta librería para el manejo de la interfaz de usuario de la página, tales como el NavBar, las tarjetas de los ítems, el carrito, etc.
+- [EmailJS](https://www.emailjs.com/): Esta librería se encarga de enviar detalles de la orden luego de que el usuario haya culminado con la compra. Se le enviará toda la información al correo antes proporcionado del cliente.
+- [Firebase](https://firebase.google.com/): Se hizo uso de esta librería para el manejo de la Base de Datos. Esta librería es de vital uso, puesto que sin ella, no tendríamos donde alojar información sobre los productos y las órdenes.
+- [Order ID](https://www.npmjs.com/package/order-id): Esta libreria se encarga de generar los numeros de orden automáticamente, que posteriormente servirá para hacerle un seguimiento a la orden. Este identificador irá a la Base de Datos en su respectiva orden.
 - [React Icons](https://react-icons.github.io/react-icons/): Se implementó esta librería para el renderizado de íconos dentro de la página.
 
 ## Requisitos Pro-Coders
