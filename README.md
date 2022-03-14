@@ -25,7 +25,7 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 - Ruta Order ("/order/:orderID"): Encargada de mostrar los detalles de el identificador de la orden especificado en los parametros. Se mostrarán detalles como fecha de compra, productos, estado, precio total y entre otros.
 
 ## Librerias
-- [React Boostrap](https://react-bootstrap.github.io/): Se implementó esta librería para el manejo de la interfaz de usuario de la página, tales como el NavBar, las tarjetas de los items, el carrito, etc.
+- [React Bootstrap](https://react-bootstrap.github.io/): Se implementó esta librería para el manejo de la interfaz de usuario de la página, tales como el NavBar, las tarjetas de los items, el carrito, etc.
 - [EmailJS](https://www.emailjs.com/): Está librería se encarga de enviar detalles de la orden luego de que el usuario haya culminado con la compra. Se le enviará toda la información al correo antes proporcionado del cliente.
 - [Firebase](https://firebase.google.com/): Se hizo uso de esta librería para el manejo de la Base de Datos. Esta libreria es de vital uso, puesto que sin ella, no tendríamos donde alojar información sobre los productos y las ordenes.
 - [Order ID](https://www.npmjs.com/package/order-id): Está libreria se encarga de generar los numeros de orden automaticamente, que posteriormente servirá para hacerle un seguimiento a la orden. Este identificador irá a la Base de Datos en su respectiva orden.
