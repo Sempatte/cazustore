@@ -4,7 +4,7 @@ CazuStore es una tienda 100% online dedicada a la venta de componentes, computad
 
 ## Instalación de los paquetes
 
-Utiliza el [npm](hhttps://www.npmjs.com/) para instalar los paquetes requeridos.
+Utiliza el comando [npm](hhttps://www.npmjs.com/) para instalar los paquetes requeridos.
 
 ```bash
 npm i
