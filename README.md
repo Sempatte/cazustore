@@ -39,6 +39,7 @@ Consiste en la implementación de un e-Commerce con ReactJS, asimismo, haciendo 
 ## Capturas
 
 ![Captura 1](https://raw.githubusercontent.com/Sempatte/cazustore/ProyectoFinalCoderHouse/Gif1.gif)
+
 ![Captura 2](https://raw.githubusercontent.com/Sempatte/cazustore/ProyectoFinalCoderHouse/Gif2.gif)
 
 ## Desarrollado con:
