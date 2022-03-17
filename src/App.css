@@ -6,6 +6,10 @@ html {
   background-color: var(--background-color);
 }
 
+body {
+  margin: 0 !important;
+}
+
 .App {
   background-color:  var(--background-color);
   text-align: center;
