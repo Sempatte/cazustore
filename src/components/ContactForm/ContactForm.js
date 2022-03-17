@@ -70,19 +70,19 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <div className="form-group"> <label htmlFor="form_email">Direccion *</label> 
+                                            <div className="form-group"> <label htmlFor="form_email">Dirección *</label> 
                                                 <input  
                                                     type="text"  
                                                     value={address} 
                                                     className="form-control" 
-                                                    placeholder="Ingresa tu direccion de compra *" 
+                                                    placeholder="Ingresa tu dirección de compra *" 
                                                     required="required"
                                                     onChange={({ target }) => setAddress(target.value)}
                                                 /> 
                                             </div>
                                         </div>
                                         <div className="col-md-6">
-                                            <div className="form-group"> <label htmlFor="form_email">Telefono *</label> 
+                                            <div className="form-group"> <label htmlFor="form_email">Teléfono *</label> 
                                                 <input 
                                                     type="text"
                                                     value={phone} 
@@ -96,7 +96,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <div className="form-group"> <label htmlFor="form_email">Email *</label> 
+                                            <div className="form-group"> <label htmlFor="form_email">Correo *</label> 
                                                 <input 
                                                     type="email"
                                                     value={email} 
@@ -107,6 +107,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                                 /> 
                                             </div>
                                         </div>
+  
                                         
                                     </div>
                                     <div className="row py-5">
@@ -116,7 +117,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                                                 <textarea
                                                     value={comment}           
                                                     className="form-control"
-                                                    placeholder="Por favor, si tienes algun comentario adicional respecto a tu compra, detallalo aqui."
+                                                    placeholder="Por favor, si tienes algún comentario adicional respecto a tu compra, detállalo aqui."
                                                     rows={2}
                                                     onChange={({ target }) => setComment(target.value)}
                                                 /> 

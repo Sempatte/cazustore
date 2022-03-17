@@ -102,7 +102,7 @@ function Cart() {
                         addDoc(collection(firestoreDb, 'orders'), objOrder).then(({ id }) => {
                             batch.commit()        
                             clearCart()  
-                            setNotification('success', `La orden se generó exitosamente, su numero de orden es: ${id}`)
+                            setNotification('success', `La orden se generó exitosamente, su número de orden es: ${id}`)
                             setTimeout(() => {
                                 var templateParams = {
                                     to: contact.email,

@@ -69,7 +69,7 @@ function OrderDetails({orderDetails}) {
                                     <p className="text-muted mb-0"><span className="fw-bold me-4">Total</span> {formatter.format(orderDetails.total - 40)}</p>
                                 </div>
                                 <div className="d-flex justify-content-between pt-2">
-                                    <p className="text-muted mb-0">Numero de tu orden: {orderDetails.orderNum}</p>
+                                    <p className="text-muted mb-0">Número de tu orden: {orderDetails.orderNum}</p>
                                     <p className="text-muted mb-0"><span className="fw-bold me-4">Descuento</span> {formatter.format(0)}</p>
                                 </div>
                                 <div className="d-flex justify-content-between mb-5">
